@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01624c79-faf2-4a8d-8add-6c8b425cc53f" name="Changes" comment="" />
+    <list default="true" id="01624c79-faf2-4a8d-8add-6c8b425cc53f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/includes/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/articles.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/articles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/clients.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/clients.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/commandes.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/commandes.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,12 +43,14 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "configurable.group.appearance",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\ecom\public" />
       <recent name="C:\wamp64\www\ecom\vue" />
     </key>
   </component>
@@ -51,11 +62,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720612769804</updated>
-      <workItem from="1720612772418" duration="1782000" />
+      <workItem from="1720612772418" duration="1915000" />
+      <workItem from="1720619467009" duration="10492000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
 </project>
