@@ -4,7 +4,7 @@ use Class\App;
 use Exceptions\RouteNotFoundException;
 use Router\Router;
 
-define('BASE_VIEW_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR);
+define('BASE_VIEW_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'View' . DIRECTORY_SEPARATOR);
 
 $router = new Router();
 

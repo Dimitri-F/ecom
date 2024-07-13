@@ -1,6 +1,6 @@
 <?php
-include_once dirname(__DIR__ ). '/public/includes/head.php';
-include_once dirname(__DIR__ ). '/public/includes/nav.php';
+include_once dirname(__DIR__) . '/Public/includes/head.php';
+include_once dirname(__DIR__) . '/Public/includes/nav.php';
 
 
 ?>
@@ -33,4 +33,4 @@ include_once dirname(__DIR__ ). '/public/includes/nav.php';
 
 
 
-<?php include_once dirname(__DIR__ ). '/public/includes/footer.php'; ?>
+<?php include_once dirname(__DIR__) . '/Public/includes/footer.php'; ?>

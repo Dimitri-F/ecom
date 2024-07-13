@@ -70,7 +70,7 @@ class Spdo
     /**
      * Crée et retourne l'objet SPDO
      *
-     * @access public
+     * @access Public
      * @static
      * @param void
      * @return SPDO $instance
