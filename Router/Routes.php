@@ -1,7 +1,6 @@
 <?php
 
 use Class\App;
-use Exceptions\RouteNotFoundException;
 use Router\Router;
 
 define('BASE_VIEW_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'View' . DIRECTORY_SEPARATOR);

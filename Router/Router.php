@@ -6,7 +6,6 @@ use Exceptions\RouteNotFoundException;
 
 class Router
 {
-
     private array $routes;
 
     public function register(string $path, array $action) : void
