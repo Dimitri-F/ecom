@@ -1,4 +1,4 @@
-<?php?>
+<?php ?>
 <!-- component -->
 <header>
 
@@ -17,17 +17,18 @@
                 </div>
                 <div id="main-nav" class="w-full flex-grow lg:flex items-center lg:w-auto hidden  ">
                     <div class="text-sm lg:flex-grow mt-2 animated jackinthebox xl:mx-8">
-                        <a href="./../view/articles.php"
+                        <a href="/"
+                           class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                            HOME
+                        </a>
+                        <a href="articles"
                            class="block lg:inline-block text-md font-bold  text-orange-500  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                             ARTICLES
                         </a>
-                        <a href="#home"
+
+                        <a href="clients"
                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
-                            ROAD & STORY
-                        </a>
-                        <a href="#home"
-                           class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
-                            ACCOMMODATION
+                            CLIENTS
                         </a>
                         <a href="#home"
                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">

@@ -2,16 +2,23 @@
     "name": "app/ecom",
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "Class\\": "Src/",
+            "Db\\": "Database/",
+            "Model\\": "Model/",
+            "Router\\": "Router/",
+            "Exceptions\\": "Exceptions/",
+            "Controller\\": "Controller/"
+
         }
     },
     "authors": [
         {
             "name": "Dimitri-F",
-            "email": "dimitri.fonsat@gmail.com"
+            "email": "test@gmail.com"
         }
     ],
     "require": {
-        "vlucas/phpdotenv": "^5.6"
+        "vlucas/phpdotenv": "^5.6",
+        "ext-pdo": "*"
     }
 }

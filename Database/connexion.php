@@ -1,9 +1,11 @@
 <?php
 // Charger les variables d'environnement depuis le fichier .env
+require_once dirname(__DIR__ . '/../vendor/autoload.php');
 use Dotenv\Dotenv;
 
-$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../ecom/');
 $dotenv->load();
+
 
 $servername = $_ENV['SERVER'];
 $username = $_ENV['USER'];

@@ -1,6 +1,7 @@
 <?php
-include_once __DIR__ . '/../includes/head.php';
-include_once __DIR__ . '/../includes/nav.php';
+include_once dirname(__DIR__ ). '/public/includes/head.php';
+include_once dirname(__DIR__ ). '/public/includes/nav.php';
+
 
 ?>
 <!-- component -->
@@ -32,4 +33,4 @@ include_once __DIR__ . '/../includes/nav.php';
 
 
 
-<?php include_once __DIR__ . '/../includes/footer.php'; ?>
+<?php include_once dirname(__DIR__ ). '/public/includes/footer.php'; ?>
