@@ -1,4 +1,6 @@
-<?php ?>
+<?php
+?>
+
 <!-- component -->
 <header>
 
@@ -21,12 +23,12 @@
                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                             HOME
                         </a>
-                        <a href="articles"
+                        <a href="/products"
                            class="block lg:inline-block text-md font-bold  text-orange-500  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                             ARTICLES
                         </a>
 
-                        <a href="clients"
+                        <a href="/users"
                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                             CLIENTS
                         </a>
@@ -38,9 +40,9 @@
                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                             CONTACT US
                         </a>
-                        <a href="#home"
+                        <a href="/login"
                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
-                            COMING SOON
+                            SE CONNECTER
                         </a>
                     </div>
                 </div>

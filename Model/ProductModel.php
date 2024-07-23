@@ -3,7 +3,7 @@
 namespace Model;
 use Db\Spdo;
 
-class ArticleModel extends Model
+class ProductModel extends Model
 {
     protected string $table = 'products';
 

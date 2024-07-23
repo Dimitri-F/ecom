@@ -8,6 +8,6 @@ class HomeController
 {
     public function index()
     {
-        return Renderer::make('accueil');
+        return Renderer::make('home');
     }
 }

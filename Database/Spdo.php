@@ -90,10 +90,31 @@ class Spdo
      * @param string $query La requête SQL
      * @return PDOStatement Retourne l'objet PDOStatement
      */
-    public function query($query)
+    public function query(string $query): PDOStatement
     {
         return $this->PDOInstance->query($query);
     }
 
+    public function prepare(string $query)
+    {
+        return $this->PDOInstance->prepare($query);
+    }
 
+    public function execute($query)
+    {
+        return $this->PDOInstance->execute($query);
+    }
+
+    /**
+     * Lie un paramètre à une variable spécifique
+     *
+     * @param string $parameter Le nom du paramètre
+     * @param mixed $variable La variable à lier
+     * @param int|null $dataType Le type de la donnée
+     * @return bool Retourne le résultat de l'opération
+     */
+    public function bindParam(string $parameter, mixed $variable, ?int $dataType = null): bool
+    {
+        return $this->PDOInstance->bindParam($parameter, $variable, $dataType);
+    }
 }

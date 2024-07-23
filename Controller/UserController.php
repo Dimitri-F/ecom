@@ -4,10 +4,10 @@ namespace Controller;
 
 use Class\Renderer;
 
-class ClientController
+class UserController
 {
     public function index(): Renderer
     {
-        return Renderer::make('clients');
+        return Renderer::make('users');
     }
 }

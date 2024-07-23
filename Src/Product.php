@@ -1,11 +1,11 @@
 <?php
 namespace Class;
 
-class Article
+class Product
 {
-    private $id;
-    private $title;
-    private $price;
+    private int $id;
+    private string $title;
+    private float $price;
 
     public function __construct($id, $title, $price) {
         $this->id = $id;
