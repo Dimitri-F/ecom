@@ -10,4 +10,11 @@ class LoginController
     {
         return Renderer::make('login');
     }
+
+    public function connexion(): Renderer
+    {
+        return Renderer::make('login');
+    }
+
+
 }

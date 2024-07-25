@@ -1,5 +1,8 @@
 <?php
-
+    if (isset($_SESSION['pseudo'])) {
+        echo "Bienvenue " . $_SESSION['pseudo'];
+        unset($_SESSION['pseudo']);
+    }
 ?>
 
 <!-- component -->

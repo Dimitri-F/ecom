@@ -17,5 +17,9 @@ $router->register('/users', ['Controller\UserController', 'index']);
 
 $router->register('/login', ['Controller\LoginController', 'index']);
 
+$router->register('/Admin/manage_login.php', function (){
+    require_once '../Admin/manage_login.php';
+});
+
 (new App($router, $_SERVER['REQUEST_URI']))->run();
 

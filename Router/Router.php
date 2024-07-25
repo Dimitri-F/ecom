@@ -8,7 +8,7 @@ class Router
 {
     private array $routes;
 
-    public function register(string $path, array $action) : void
+    public function register(string $path, callable|array $action) : void
     {
         $this->routes[$path] = $action;
     }
@@ -59,6 +59,10 @@ class Router
             // Vérifie si le chemin correspond au modèle
             if (preg_match('#^' . $pattern . '$#', $path, $matches)) {
                 array_shift($matches); // Retire le premier élément qui est l'URL entière
+
+                if (is_callable($action)){
+                    return $action();
+                }
 
                 if (is_array($action)) {
                     [$className, $method] = $action;

@@ -27,7 +27,14 @@ class Model
         $stmt = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetch();
+        $result = $stmt->fetch();
+
+        // Vérifie si un résultat a été trouvé, sinon retourne un tableau vide
+        if ($result === false) {
+            return [];
+        }
+
+        return $result;
     }
 
 }
