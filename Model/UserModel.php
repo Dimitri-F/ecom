@@ -20,12 +20,11 @@ class UserModel extends Model
         return $stmt->execute();
     }
 
-    public function recoverUserId(string $pseudo, string $password): ?int
+    public function recoverUserId(string $pseudo): ?int
     {
-        $stmt = $this->pdo->prepare("SELECT id FROM {$this->table} WHERE pseudo = :pseudo AND password = :password");
+        $stmt = $this->pdo->prepare("SELECT id FROM {$this->table} WHERE pseudo = :pseudo");
 
         $stmt->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
-        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
 
         $stmt->execute();
 

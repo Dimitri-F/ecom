@@ -1,13 +1,18 @@
 <?php
+use Controller\LoginController;
+
 if (isset($_SESSION['message'])) {
     echo $_SESSION['message'];
     unset($_SESSION['message']);
 }
+
+$loginController = new LoginController();
+$loginController->handleRequest();
 ?>
 
 <h1 class="text-center">CONNEXION PAGE</h1>
 <div class="flex items-center justify-center">
-    <form method="POST" action="../Admin/manage_login.php" class="m-5">
+    <form method="POST" action="" class="m-5">
         <div>
             <label for="pseudo"></label>
             <input type="text" name="pseudo">
