@@ -15,7 +15,9 @@ $router->register('/products_detail/{id}', ['Controller\ProductController', 'det
 
 $router->register('/users', ['Controller\UserController', 'index']);
 
-$router->register('/login', ['Controller\LoginController', 'index']);
+$router->register('/login', ['Controller\LoginController', 'login']);
+$router->register('/registration', ['Controller\LoginController', 'registration']);
+$router->register('/logout', ['Controller\LoginController', 'logout']);
 
 $router->register('/Admin/manage_login.php', function (){
     require_once '../Admin/manage_login.php';

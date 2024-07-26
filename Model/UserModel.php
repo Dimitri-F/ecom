@@ -20,7 +20,7 @@ class UserModel extends Model
         return $stmt->execute();
     }
 
-    public function recoverUser(string $pseudo, string $password): ?int
+    public function recoverUserId(string $pseudo, string $password): ?int
     {
         $stmt = $this->pdo->prepare("SELECT id FROM {$this->table} WHERE pseudo = :pseudo AND password = :password");
 
@@ -34,7 +34,18 @@ class UserModel extends Model
         return $result ? (int) $result['id'] : null;
     }
 
+    public function recoverUser(string $pseudo): ?array
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE pseudo = :pseudo");
 
+        $stmt->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $user ? $user : null;
+    }
 
 
 }

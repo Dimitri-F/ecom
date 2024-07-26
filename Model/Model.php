@@ -21,7 +21,6 @@ class Model
         return $stmt->fetchAll();
     }
 
-
     public function getByID(int $id): array
     {
         $stmt = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id = :id");

@@ -6,15 +6,19 @@ use Class\Renderer;
 
 class LoginController
 {
-    public function index(): Renderer
+        public function login(): Renderer
     {
         return Renderer::make('login');
     }
 
-    public function connexion(): Renderer
+    public function registration(): Renderer
     {
-        return Renderer::make('login');
+        return Renderer::make('registration');
     }
 
+    public function logout(): Renderer
+    {
+        return Renderer::make('logout');
+    }
 
 }
