@@ -36,4 +36,11 @@ class Model
         return $result;
     }
 
+    public function doesPseudoExist(string $pseudo): bool {
+        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM {$this->table} WHERE pseudo = :pseudo");
+        $stmt->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
+    }
+
 }

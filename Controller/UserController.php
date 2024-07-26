@@ -3,7 +3,6 @@
 namespace Controller;
 
 use Class\Renderer;
-use Model\UserModel;
 
 class UserController
 {

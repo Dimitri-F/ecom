@@ -28,6 +28,12 @@ class LoginController
             $pseudo = htmlspecialchars($_POST['pseudo']);
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+            if ($this->userModel->doesPseudoExist($pseudo)) {
+                $_SESSION['message'] = "Ce pseudo est déjà pris, veuillez en choisir un autre.";
+                header("Location: /registration");
+                return;
+            }
+
             $this->userModel->insert($pseudo, $password);
             $userId = $this->userModel->recoverUserId($pseudo);
 
