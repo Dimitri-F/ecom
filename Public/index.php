@@ -6,11 +6,17 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 include_once __DIR__ . '/includes/head.php';
 
-include_once __DIR__ . '/includes/nav.php';
+if (!str_contains($_SERVER['REQUEST_URI'], 'admin')) {
+    include_once __DIR__ . '/includes/nav.php';
+}
 
 include_once dirname(__DIR__) . '/Router/Routes.php';
 
-include_once __DIR__ . '/includes/footer.php';
+if (!str_contains($_SERVER['REQUEST_URI'], 'admin')) {
+    include_once __DIR__ . '/includes/footer.php';
+}
+
+
 
 
 

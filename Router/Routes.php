@@ -19,8 +19,8 @@ $router->register('/login', ['Controller\LoginController', 'login']);
 $router->register('/registration', ['Controller\LoginController', 'registration']);
 $router->register('/logout', ['Controller\LoginController', 'logout']);
 
-$router->register('/Admin/manage_login.php', function (){
-    require_once '../Admin/manage_login.php';
+$router->register('/admin/dashboard', function (){
+    require_once '../Admin/dashboard.php';
 });
 
 (new App($router, $_SERVER['REQUEST_URI']))->run();

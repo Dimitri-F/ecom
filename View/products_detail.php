@@ -1,5 +1,6 @@
 <?php ?>
 <!-- component -->
+<a href="/products">Retour à la liste d'articles</a>
 <?php if (!empty($product)) : ?>
 <div class="flex min-h-screen items-center justify-center bg-gray-100">
 

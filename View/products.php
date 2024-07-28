@@ -1,10 +1,7 @@
 <?php
-include_once dirname(__DIR__) . '/Public/includes/head.php';
-include_once dirname(__DIR__) . '/Public/includes/nav.php';
 
 
 ?>
-
 
     <div class="bg-white py-16 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8">
         <div class="flex items-center justify-between px-4 sm:px-6 lg:px-0">
@@ -37,7 +34,3 @@ include_once dirname(__DIR__) . '/Public/includes/nav.php';
             <p class="mt-8 text-center text-gray-500">Aucun article trouvé.</p>
         <?php endif; ?>
     </div>
-
-<?php
-    include_once dirname(__DIR__) . '/Public/includes/footer.php';
-?>

@@ -11,7 +11,6 @@ class Product
         $this->id = $id;
         $this->title = $title;
         $this->price = $price;
-
     }
 
     public function getId() {
@@ -25,7 +24,6 @@ class Product
     public function getPrice() {
         return $this->price;
     }
-
 
     public function setId($id) {
         $this->id = $id;

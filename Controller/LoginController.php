@@ -35,7 +35,7 @@ class LoginController
             }
 
             $this->userModel->insert($pseudo, $password);
-            $userId = $this->userModel->recoverUserId($pseudo);
+            $userId = $this->userModel->getUserId($pseudo);
 
             if ($userId !== null) {
                 $this->setSession($pseudo, $userId);
@@ -59,8 +59,14 @@ class LoginController
             $user = $this->userModel->recoverUser($pseudo);
 
             if ($user && password_verify($password, $user['password'])) {
+
                 $this->setSession($pseudo, $user['id']);
-                header("Location: /");
+
+                if ($user['admin'] == 1) {
+                    header("Location: /admin/dashboard");
+                } else {
+                    header("Location: /");
+                }
             } else {
                 $_SESSION['message'] = "Votre pseudo ou mot de passe est incorrect...";
                 header("Location: /login");
@@ -70,6 +76,7 @@ class LoginController
             header("Location: /login");
         }
     }
+
 
     private function validateForm(array $fields): bool
     {

@@ -28,19 +28,11 @@ class Model
         $stmt->execute();
         $result = $stmt->fetch();
 
-        // Vérifie si un résultat a été trouvé, sinon retourne un tableau vide
         if ($result === false) {
             return [];
         }
 
         return $result;
-    }
-
-    public function doesPseudoExist(string $pseudo): bool {
-        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM {$this->table} WHERE pseudo = :pseudo");
-        $stmt->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
-        $stmt->execute();
-        return $stmt->fetchColumn() > 0;
     }
 
 }
