@@ -12,7 +12,7 @@ class Router
     {
         $this->routes[$path] = $action;
     }
-    
+
     /**
      * @throws RouteNotFoundException
      */

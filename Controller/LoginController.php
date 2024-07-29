@@ -63,7 +63,7 @@ class LoginController
                 $this->setSession($pseudo, $user['id']);
 
                 if ($user['admin'] == 1) {
-                    header("Location: /admin/dashboard");
+                    header("Location: /admin/products");
                 } else {
                     header("Location: /");
                 }
@@ -76,7 +76,6 @@ class LoginController
             header("Location: /login");
         }
     }
-
 
     private function validateForm(array $fields): bool
     {

@@ -2,6 +2,8 @@
 
 namespace Controller;
 
+use Class\Renderer;
+use Model\ProductModel;
 use Model\UserModel;
 
 class AdminController
@@ -31,5 +33,18 @@ class AdminController
     private function isAdmin(): bool {
         $userId = $_SESSION['userId'];
         return $this->userModel->isAdmin($userId);
+    }
+
+    public function listProducts(): Renderer{
+        if (!$this->isAdmin()) {
+            $_SESSION['message'] = "Accès refusé.";
+            header("Location: /login");
+            exit();
+        }
+
+        $productModel = new ProductModel();
+        $products = $productModel->getAll();
+
+        return Renderer::make('products', ['products' => $products], 'admin');
     }
 }

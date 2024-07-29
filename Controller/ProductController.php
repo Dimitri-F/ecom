@@ -23,5 +23,4 @@ class ProductController
         return Renderer::make('products_detail', ['product' => $product]);
     }
 
-
 }
