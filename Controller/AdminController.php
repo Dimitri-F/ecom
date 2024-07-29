@@ -9,25 +9,11 @@ use Model\UserModel;
 class AdminController
 {
     private UserModel $userModel;
+    private ProductModel $productModel;
 
     public function __construct() {
         $this->userModel = new UserModel();
-    }
-
-    public function handleAdminRequest(): void
-    {
-        if (!$this->isAuthenticated() || !$this->isAdmin()) {
-            $_SESSION['message'] = "Accès refusé.";
-            header("Location: /login");
-            exit();
-        }
-
-        // Logique de la page admin
-        //TODO
-    }
-
-    private function isAuthenticated(): bool {
-        return isset($_SESSION['userId']);
+        $this->productModel = new ProductModel();
     }
 
     private function isAdmin(): bool {
@@ -42,9 +28,16 @@ class AdminController
             exit();
         }
 
-        $productModel = new ProductModel();
-        $products = $productModel->getAll();
+        $products = $this->productModel->getAll();
 
         return Renderer::make('products', ['products' => $products], 'admin');
     }
+
+    public function deleteProduct($id): void
+    {
+      $this->productModel->deleteById($id);
+
+      $this->listProducts();
+    }
+
 }

@@ -4,32 +4,6 @@ namespace Class;
 
 class Renderer
 {
-
-//    public function __construct(private string $viewPath, private ?array $params)
-//    {
-//    }
-//
-//    public function view()
-//    {
-//        ob_start();
-//
-//        extract($this->params);
-//
-//        require BASE_VIEW_PATH . $this->viewPath . '.php';
-//
-//        return ob_get_clean();
-//    }
-//
-//    public static function make(string $viewPath, array $params = []): static
-//    {
-//        return new static($viewPath, $params);
-//    }
-//
-//    public function __toString()
-//    {
-//        return $this->view();
-//    }
-
     private string $viewType;
     private string $viewPath;
     private ?array $params;
@@ -41,7 +15,7 @@ class Renderer
         $this->viewType = $viewType;
     }
 
-    public function view()
+    public function view(): bool|string
     {
         ob_start();
         extract($this->params);
@@ -54,12 +28,10 @@ class Renderer
 
     private function getBaseViewPath(): string
     {
-        switch ($this->viewType) {
-            case 'admin':
-                return BASE_ADMIN_VIEW_PATH;
-            default:
-                return BASE_VIEW_PATH;
-        }
+        return match ($this->viewType) {
+            'admin' => BASE_ADMIN_VIEW_PATH,
+            default => BASE_VIEW_PATH,
+        };
     }
 
     public static function make(string $viewPath, array $params = [], string $viewType = 'public'): static

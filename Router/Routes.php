@@ -24,6 +24,8 @@ $router->register('/logout', ['Controller\LoginController', 'logout']);
 
 //routes d'administration
 $router->register('/admin/products', ['Controller\AdminController', 'listProducts']);
+$router->register('/admin/delete_product/{id}', ['Controller\AdminController', 'deleteProduct']);
+
 
 (new App($router, $_SERVER['REQUEST_URI']))->run();
 

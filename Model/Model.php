@@ -35,4 +35,14 @@ class Model
         return $result;
     }
 
+    public function deleteById(int $id): bool
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = :id");
+
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+
+
 }
