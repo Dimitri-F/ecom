@@ -10,8 +10,9 @@
       <change beforePath="$PROJECT_DIR$/Admin/includes/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/includes/nav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ProductModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/ProductModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/includes/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/Public/includes/head.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Router/Routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Router/Routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/Renderer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Renderer.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,10 +75,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\ecom" />
+      <recent name="C:\wamp64\www\ecom\Public\assets" />
       <recent name="C:\wamp64\www\ecom\admin" />
       <recent name="C:\wamp64\www\ecom\src" />
       <recent name="C:\wamp64\www\ecom\public" />
-      <recent name="C:\wamp64\www\ecom\vue" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -102,7 +103,9 @@
       <workItem from="1721897244793" duration="5079000" />
       <workItem from="1721985550422" duration="10368000" />
       <workItem from="1722164463199" duration="9156000" />
-      <workItem from="1722241945351" duration="15047000" />
+      <workItem from="1722241945351" duration="15363000" />
+      <workItem from="1722318536913" duration="9171000" />
+      <workItem from="1722419442079" duration="6804000" />
     </task>
     <servers />
   </component>

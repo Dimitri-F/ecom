@@ -1,7 +1,6 @@
 <?php
 
 use Class\App;
-use Controller\ProductController;
 use Router\Router;
 
 define('BASE_VIEW_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'View' . DIRECTORY_SEPARATOR);
@@ -25,6 +24,8 @@ $router->register('/logout', ['Controller\LoginController', 'logout']);
 //routes d'administration
 $router->register('/admin/products', ['Controller\AdminController', 'listProducts']);
 $router->register('/admin/delete_product/{id}', ['Controller\AdminController', 'deleteProduct']);
+$router->register('/admin/edit_view/{id}', ['Controller\AdminController', 'editView']);
+$router->register('/admin/edit_product/{id}', ['Controller\AdminController', 'updateProduct']);
 
 
 (new App($router, $_SERVER['REQUEST_URI']))->run();

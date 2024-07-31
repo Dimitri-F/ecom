@@ -4,6 +4,7 @@ namespace Model;
 
 use Db\Spdo;
 use PDO;
+use PDOException;
 
 class Model
 {
@@ -35,7 +36,7 @@ class Model
         return $result;
     }
 
-    public function deleteById(int $id): bool
+    public function delete(int $id): bool
     {
         $stmt = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = :id");
 
