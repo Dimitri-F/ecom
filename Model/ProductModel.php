@@ -10,9 +10,32 @@ class ProductModel extends Model
 {
     protected string $table = 'products';
 
+    public function create(int $category_id, string $name, string $description, float $price, ?string $photoPath): bool
+    {
+        $sql = "INSERT INTO products (category_id, name, description, price, photo)
+            VALUES (:category_id, :name, :description, :price, :photo)";
+
+//        try {
+            $stmt = $this->pdo->prepare($sql);
+
+            $stmt->bindParam(':category_id', $category_id, PDO::PARAM_INT);
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':description', $description);
+            $stmt->bindParam(':price', $price, PDO::PARAM_STR);
+            $stmt->bindParam(':photo', $photoPath);
+
+            return $stmt->execute();
+//        } catch (PDOException $e) {
+//            // Gère les exceptions et enregistre le message d'erreur
+//            $_SESSION['message'] = "Erreur lors de la création du produit : " . $e->getMessage();
+//            return false;
+//        }
+    }
+
+
     public function getProductPhoto(int $id)
     {
-        $stmt = $this->pdo->prepare("SELECT photo FROM products WHERE id = :id");
+        $stmt = $this->pdo->prepare("SELECT photo FROM {$this->table} WHERE id = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
 
@@ -29,7 +52,7 @@ class ProductModel extends Model
     public function update(int $id, int $categoryId, string $name, string $description, float $price, ?string $photoPath): bool
     {
         // Préparer la requête SQL avec les colonnes spécifiques
-        $sql = "UPDATE products 
+        $sql = "UPDATE {$this->table} 
             SET category_id = :category_id, 
                 name = :name, 
                 description = :description, 
@@ -57,6 +80,8 @@ class ProductModel extends Model
             return false;
         }
     }
+
+
 
 
 }

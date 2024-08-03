@@ -26,6 +26,8 @@ $router->register('/admin/products', ['Controller\AdminController', 'listProduct
 $router->register('/admin/delete_product/{id}', ['Controller\AdminController', 'deleteProduct']);
 $router->register('/admin/edit_view/{id}', ['Controller\AdminController', 'editView']);
 $router->register('/admin/edit_product/{id}', ['Controller\AdminController', 'updateProduct']);
+$router->register('/admin/create_view', ['Controller\AdminController', 'createView']);
+$router->register('/admin/create_product', ['Controller\AdminController', 'createProduct']);
 
 
 (new App($router, $_SERVER['REQUEST_URI']))->run();

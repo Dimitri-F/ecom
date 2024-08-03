@@ -6,12 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="01624c79-faf2-4a8d-8add-6c8b425cc53f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/View/edit_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/edit_product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Admin/View/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/includes/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/includes/nav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/ProductModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/ProductModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Public/includes/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/Public/includes/head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/Public/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/includes/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Public/includes/nav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Router/Routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Router/Routes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,11 +75,11 @@
       <recent name="C:\wamp64\www\ecom" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\ecom\Public" />
       <recent name="C:\wamp64\www\ecom" />
       <recent name="C:\wamp64\www\ecom\Public\assets" />
       <recent name="C:\wamp64\www\ecom\admin" />
       <recent name="C:\wamp64\www\ecom\src" />
-      <recent name="C:\wamp64\www\ecom\public" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -105,7 +106,10 @@
       <workItem from="1722164463199" duration="9156000" />
       <workItem from="1722241945351" duration="15363000" />
       <workItem from="1722318536913" duration="9171000" />
-      <workItem from="1722419442079" duration="6804000" />
+      <workItem from="1722419442079" duration="10680000" />
+      <workItem from="1722498343747" duration="6649000" />
+      <workItem from="1722599454845" duration="4732000" />
+      <workItem from="1722680498394" duration="6203000" />
     </task>
     <servers />
   </component>

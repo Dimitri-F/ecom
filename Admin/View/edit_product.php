@@ -42,10 +42,6 @@
             <input type="file" id="photo" name="photo" accept=".jpg">
             <small>Format accepté : jpg</small>
         </div>
-
-<!--        <div class="form-group">-->
-<!--            <a href="/admin/edit_product/--><?php //=$product['id']?><!--" >Mettre à jour le produit</a>-->
-<!--        </div>-->
         <div class="form-group">
             <button type="submit">Mettre à jour le produit</button>
         </div>
