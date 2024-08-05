@@ -30,9 +30,9 @@
                         <td><?= $product['id'] ?></td>
                         <td><?= $product['name'] ?></td>
                         <td><?= $product['description'] ?></td>
-                        <td><?= $product['category_id'] ?></td>
+                        <td><?= $product['category_name'] ?></td>
                         <td><?= $product['price'] ?> €</td>
-                        <td><img src="/uploads/<?= htmlspecialchars($product['photo']) ?>" alt="<?= htmlspecialchars($product['name']) ?>"></td>
+                        <td><img  class="object-contain h-48 w-48" src="/uploads/<?= htmlspecialchars($product['photo']) ?>" alt="<?= htmlspecialchars($product['name']) ?>"></td>
                         <td>
                             <a href="/admin/edit_view/<?= $product['id'] ?>">Modifier</a>
                             <a href="/admin/delete_product/<?=$product['id']?>">Supprimer</a>

@@ -15,7 +15,7 @@ class ProductModel extends Model
         $sql = "INSERT INTO products (category_id, name, description, price, photo)
             VALUES (:category_id, :name, :description, :price, :photo)";
 
-//        try {
+        try {
             $stmt = $this->pdo->prepare($sql);
 
             $stmt->bindParam(':category_id', $category_id, PDO::PARAM_INT);
@@ -25,11 +25,11 @@ class ProductModel extends Model
             $stmt->bindParam(':photo', $photoPath);
 
             return $stmt->execute();
-//        } catch (PDOException $e) {
-//            // Gère les exceptions et enregistre le message d'erreur
-//            $_SESSION['message'] = "Erreur lors de la création du produit : " . $e->getMessage();
-//            return false;
-//        }
+        } catch (PDOException $e) {
+            // Gère les exceptions et enregistre le message d'erreur
+            $_SESSION['message'] = "Erreur lors de la création du produit : " . $e->getMessage();
+            return false;
+        }
     }
 
 
@@ -80,9 +80,6 @@ class ProductModel extends Model
             return false;
         }
     }
-
-
-
 
 }
 

@@ -16,9 +16,9 @@
         <div class="form-group">
             <label for="category_id">Catégorie</label>
             <select id="category_id" name="category_id" required>
-                <option value="1">Laptop</option>
-                <option value="2">Desktop PC</option>
-                <option value="3">Tablet</option>
+                <option value="1" <?= $product['category_id'] == 1 ? 'selected' : '' ?>>Laptop</option>
+                <option value="2" <?= $product['category_id'] == 2 ? 'selected' : '' ?>>Desktop PC</option>
+                <option value="3" <?= $product['category_id'] == 3 ? 'selected' : '' ?>>Tablet</option>
             </select>
         </div>
 

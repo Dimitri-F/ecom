@@ -4,6 +4,7 @@ namespace Controller;
 
 use Class\Renderer;
 use JetBrains\PhpStorm\NoReturn;
+use Model\CategoryModel;
 use Model\ProductModel;
 use Model\UserModel;
 
@@ -11,10 +12,12 @@ class AdminController
 {
     private UserModel $userModel;
     private ProductModel $productModel;
+    private CategoryModel $categoryModel;
 
     public function __construct() {
         $this->userModel = new UserModel();
         $this->productModel = new ProductModel();
+        $this->categoryModel = new CategoryModel();
     }
 
     private function isAdmin(): bool {
@@ -26,6 +29,24 @@ class AdminController
         $this->checkAdminAccess();
 
         $products = $this->productModel->getAll();
+
+        // Récupérer toutes les catégories
+        $categories = $this->categoryModel->getAll();
+
+        // Convertir les catégories en tableau associatif pour un accès facile
+        $categoryMap = [];
+        foreach ($categories as $category) {
+            $categoryMap[$category['id']] = $category['name'];
+        }
+
+        // Associer les noms des catégories aux produits
+        foreach ($products as &$product) {
+            if (isset($categoryMap[$product['category_id']])) {
+                $product['category_name'] = $categoryMap[$product['category_id']];
+            } else {
+                $product['category_name'] = 'Inconnue';
+            }
+        }
 
         return Renderer::make('products', ['products' => $products], 'admin');
     }
@@ -100,10 +121,17 @@ class AdminController
         $description = htmlspecialchars($_POST['description']);
         $price = $_POST['price'];
 
+        // Récupérer les détails actuels du produit
+        $product = $this->productModel->getByID($id);
+
+        // Utiliser la catégorie existante si aucune nouvelle catégorie n'est sélectionnée
+        if ($category_id === null) {
+            $category_id = $product['category_id'];
+        }
+
         // Gestion de la photo
         if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
             $photo = $_FILES['photo']['name'];
-//            $photoPath = dirname(__DIR__) . '/pu/uploads/' . basename($photo);
             $photoPath = dirname(__DIR__) . '/Public/uploads/' . basename($photo);
 
             if (!move_uploaded_file($_FILES['photo']['tmp_name'], $photoPath)) {
