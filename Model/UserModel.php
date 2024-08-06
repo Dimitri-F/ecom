@@ -4,7 +4,7 @@ namespace Model;
 
 use PDO;
 
-class UserModel extends Model
+class UserModel extends BaseModel
 {
     protected string $table = 'users';
 

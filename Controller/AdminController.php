@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+
 use Class\Renderer;
 use JetBrains\PhpStorm\NoReturn;
 use Model\CategoryModel;
@@ -57,8 +58,7 @@ class AdminController
         return Renderer::make('create_product', [], 'admin');
     }
 
-    public function createProduct(): void
-    {
+    public function createProduct(): void {
         $this->checkAdminAccess();
 
         $category_id = $_POST['category_id'];
@@ -74,14 +74,23 @@ class AdminController
 
             // Vérifier le succès du déplacement du fichier
             if (!move_uploaded_file($_FILES['photo']['tmp_name'], $photoPath)) {
-                $_SESSION['message'] = "Erreur lors du téléchargement de la photo. : " . $photoPath;
+                $_SESSION['message'] = "Erreur lors du téléchargement de la photo : " . $photoPath;
                 header("Location: /admin/create_product");
                 exit;
             }
         }
 
+        // Créer l'array $data
+        $data = [
+            'category_id' => $category_id,
+            'name' => $name,
+            'description' => $description,
+            'price' => $price,
+            'photo' => $photo
+        ];
+
         // Création du produit
-        $created = $this->productModel->create($category_id, $name, $description, $price, $photo);
+        $created = $this->productModel->create($data);
 
         if ($created) {
             $_SESSION['message'] = "Produit créé avec succès.";
@@ -91,6 +100,42 @@ class AdminController
 
         header("Location: /admin/products");
     }
+
+
+//    public function createProduct(): void
+//    {
+//        $this->checkAdminAccess();
+//
+//        $category_id = $_POST['category_id'];
+//        $name = htmlspecialchars($_POST['name']);
+//        $description = htmlspecialchars($_POST['description']);
+//        $price = $_POST['price'];
+//
+//        // Gestion de la photo
+//        $photoPath = null;
+//        if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
+//            $photo = $_FILES['photo']['name'];
+//            $photoPath = dirname(__DIR__) . '/Public/uploads/' . basename($photo);
+//
+//            // Vérifier le succès du déplacement du fichier
+//            if (!move_uploaded_file($_FILES['photo']['tmp_name'], $photoPath)) {
+//                $_SESSION['message'] = "Erreur lors du téléchargement de la photo. : " . $photoPath;
+//                header("Location: /admin/create_product");
+//                exit;
+//            }
+//        }
+//
+//        // Création du produit
+//        $created = $this->productModel->create($category_id, $name, $description, $price, $photo);
+//
+//        if ($created) {
+//            $_SESSION['message'] = "Produit créé avec succès.";
+//        } else {
+//            $_SESSION['message'] = "Erreur lors de la création du produit.";
+//        }
+//
+//        header("Location: /admin/products");
+//    }
 
 
     #[NoReturn] public function deleteProduct($id): void
@@ -144,8 +189,17 @@ class AdminController
             $photo = $this->productModel->getProductPhoto($id);
         }
 
+        // Créer l'array $data
+        $data = [
+            'category_id' => $category_id,
+            'name' => $name,
+            'description' => $description,
+            'price' => $price,
+            'photo' => $photo
+        ];
+
         // Mise à jour du produit
-        $updated = $this->productModel->update($id, $category_id, $name, $description, $price, $photo);
+        $updated = $this->productModel->update($id, $data);
 
         if ($updated) {
             $_SESSION['message'] = "Produit mis à jour avec succès.";
