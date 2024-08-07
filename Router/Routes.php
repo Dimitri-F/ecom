@@ -24,9 +24,9 @@ $router->register('/logout', ['Controller\LoginController', 'logout']);
 //routes d'administration
 $router->register('/admin/products', ['Controller\AdminController', 'listProducts']);
 $router->register('/admin/delete_product/{id}', ['Controller\AdminController', 'deleteProduct']);
-$router->register('/admin/edit_view/{id}', ['Controller\AdminController', 'editView']);
+$router->register('/admin/edit_view/{id}', ['Controller\AdminController', 'updateViewProduct']);
 $router->register('/admin/edit_product/{id}', ['Controller\AdminController', 'updateProduct']);
-$router->register('/admin/create_view', ['Controller\AdminController', 'createView']);
+$router->register('/admin/create_view', ['Controller\AdminController', 'createViewProduct']);
 $router->register('/admin/create_product', ['Controller\AdminController', 'createProduct']);
 
 

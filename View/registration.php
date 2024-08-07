@@ -25,3 +25,18 @@ $loginController->handleRequest();
     </form>
 </div>
 
+<?php if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])): ?>
+    <div class="errors">
+        <ul>
+            <?php foreach ($_SESSION['errors'] as $error): ?>
+                <li><?= htmlspecialchars($error) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php unset($_SESSION['errors']); ?>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['message'])): ?>
+    <p><?= htmlspecialchars($_SESSION['message']) ?></p>
+    <?php unset($_SESSION['message']); ?>
+<?php endif; ?>

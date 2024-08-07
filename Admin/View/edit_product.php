@@ -24,7 +24,7 @@
 
         <div class="form-group">
             <label for="name">Nom du produit</label>
-            <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($product['name']); ?>" required>
+            <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($product['name']); ?>" >
         </div>
 
         <div class="form-group">
@@ -49,3 +49,15 @@
 <?php else : ?>
     <p class="mt-8 text-center text-gray-500">l'article n'existe pas.</p>
 <?php endif; ?>
+
+<?php if (isset($_SESSION['errors'])): ?>
+    <div class="errors">
+        <ul>
+            <?php foreach ($_SESSION['errors'] as $error): ?>
+                <li><?= htmlspecialchars($error) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php unset($_SESSION['errors']); ?>
+<?php endif; ?>
+

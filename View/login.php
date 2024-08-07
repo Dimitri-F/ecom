@@ -1,11 +1,6 @@
 <?php
 use Controller\LoginController;
 
-if (isset($_SESSION['message'])) {
-    echo $_SESSION['message'];
-    unset($_SESSION['message']);
-}
-
 $loginController = new LoginController();
 $loginController->handleRequest();
 ?>
@@ -28,5 +23,20 @@ $loginController->handleRequest();
     <a href="/registration" class="block lg:inline-block text-md font-bold  text-orange-500  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg" >Créer un compte</a>
 </div>
 
+<?php if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])): ?>
+    <div class="errors">
+        <ul>
+            <?php foreach ($_SESSION['errors'] as $field => $error): ?>
+                <li><?= htmlspecialchars($error) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php unset($_SESSION['errors']); ?>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['message'])): ?>
+    <p><?= htmlspecialchars($_SESSION['message']) ?></p>
+    <?php unset($_SESSION['message']); ?>
+<?php endif; ?>
 
 

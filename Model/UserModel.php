@@ -8,17 +8,17 @@ class UserModel extends BaseModel
 {
     protected string $table = 'users';
 
-    public function insert(string $pseudo, string $password): bool
-    {
-        $admin = 0;
-
-        $stmt = $this->pdo->prepare("INSERT INTO {$this->table} (pseudo, password, admin) VALUES (:pseudo, :password, :admin)");
-        $stmt->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
-        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
-        $stmt->bindParam(':admin', $admin, PDO::PARAM_INT);
-
-        return $stmt->execute();
-    }
+//    public function insert(string $pseudo, string $password): bool
+//    {
+//        $admin = 0;
+//
+//        $stmt = $this->pdo->prepare("INSERT INTO {$this->table} (pseudo, password, admin) VALUES (:pseudo, :password, :admin)");
+//        $stmt->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+//        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+//        $stmt->bindParam(':admin', $admin, PDO::PARAM_INT);
+//
+//        return $stmt->execute();
+//    }
 
     public function getUserId(string $pseudo): ?int
     {

@@ -3,6 +3,7 @@
 namespace Controller;
 
 
+use Class\FormValidator;
 use Class\Renderer;
 use JetBrains\PhpStorm\NoReturn;
 use Model\CategoryModel;
@@ -52,7 +53,7 @@ class AdminController
         return Renderer::make('products', ['products' => $products], 'admin');
     }
 
-    public function createView(): Renderer{
+    public function createViewProduct(): Renderer{
         $this->checkAdminAccess();
 
         return Renderer::make('create_product', [], 'admin');
@@ -101,43 +102,6 @@ class AdminController
         header("Location: /admin/products");
     }
 
-
-//    public function createProduct(): void
-//    {
-//        $this->checkAdminAccess();
-//
-//        $category_id = $_POST['category_id'];
-//        $name = htmlspecialchars($_POST['name']);
-//        $description = htmlspecialchars($_POST['description']);
-//        $price = $_POST['price'];
-//
-//        // Gestion de la photo
-//        $photoPath = null;
-//        if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
-//            $photo = $_FILES['photo']['name'];
-//            $photoPath = dirname(__DIR__) . '/Public/uploads/' . basename($photo);
-//
-//            // Vérifier le succès du déplacement du fichier
-//            if (!move_uploaded_file($_FILES['photo']['tmp_name'], $photoPath)) {
-//                $_SESSION['message'] = "Erreur lors du téléchargement de la photo. : " . $photoPath;
-//                header("Location: /admin/create_product");
-//                exit;
-//            }
-//        }
-//
-//        // Création du produit
-//        $created = $this->productModel->create($category_id, $name, $description, $price, $photo);
-//
-//        if ($created) {
-//            $_SESSION['message'] = "Produit créé avec succès.";
-//        } else {
-//            $_SESSION['message'] = "Erreur lors de la création du produit.";
-//        }
-//
-//        header("Location: /admin/products");
-//    }
-
-
     #[NoReturn] public function deleteProduct($id): void
     {
       $this->checkAdminAccess();
@@ -148,11 +112,13 @@ class AdminController
       exit();
     }
 
-    public function editView($id): Renderer
+    public function updateViewProduct($id): Renderer
     {
         $this->checkAdminAccess();
 
         $product = $this->productModel->getByID($id);
+
+        $_SESSION['message'] = $product['price'];
         return Renderer::make('edit_product', ['product' => $product], 'admin');
     }
 
@@ -160,11 +126,30 @@ class AdminController
     {
         $this->checkAdminAccess();
 
-        $id = $_POST['id'];
-        $category_id = $_POST['category_id'];
-        $name = htmlspecialchars($_POST['name']);
-        $description = htmlspecialchars($_POST['description']);
-        $price = $_POST['price'];
+        // Valider les données du formulaire
+        $fieldsToValidate = [
+            'id' => 'int',
+            'category_id' => 'int',
+            'name' => 'string',
+            'description' => 'string',
+            'price' => 'float'
+        ];
+
+        $validationResult = FormValidator::validateForm($fieldsToValidate);
+        $sanitizedData = $validationResult['data'];
+        $errors = $validationResult['errors'];
+
+        if (!empty($errors)) {
+            $_SESSION['errors'] = $errors;
+            header("Location: /admin/edit_view/{$_POST['id']}");
+            exit;
+        }
+
+        $id = $sanitizedData['id'];
+        $category_id = $sanitizedData['category_id'];
+        $name = $sanitizedData['name'];
+        $description = $sanitizedData['description'];
+        $price = $sanitizedData['price'];
 
         // Récupérer les détails actuels du produit
         $product = $this->productModel->getByID($id);
@@ -207,16 +192,6 @@ class AdminController
             $_SESSION['message'] = "Erreur lors de la mise à jour du produit.";
         }
         header("Location: /admin/products");
-    }
-
-    private function validateForm(array $fields): bool
-    {
-        foreach ($fields as $field) {
-            if (empty($_POST[$field])) {
-                return false;
-            }
-        }
-        return true;
     }
 
     // Méthode pour vérifier si l'utilisateur est un administrateur

@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Class\FormValidator;
 use Class\Renderer;
 use Model\UserModel;
 
@@ -24,17 +25,36 @@ class LoginController
 
     private function registerUser(): void
     {
-        if ($this->validateForm(['pseudo', 'password'])) {
-            $pseudo = htmlspecialchars($_POST['pseudo']);
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $validationResult = FormValidator::validateForm([
+                'pseudo' => 'string',
+                'password' => 'string'
+            ]);
 
-            if ($this->userModel->doesPseudoExist($pseudo)) {
-                $_SESSION['message'] = "Ce pseudo est déjà pris, veuillez en choisir un autre.";
-                header("Location: /registration");
-                return;
+            $errors = $validationResult['errors'];
+            $sanitizedData = $validationResult['data'];
+
+            if ($this->userModel->doesPseudoExist($sanitizedData['pseudo'])) {
+                $errors['pseudo'] = "Ce pseudo est déjà pris, veuillez en choisir un autre.";
             }
 
-            $this->userModel->insert($pseudo, $password);
+            if (!empty($errors)) {
+                $_SESSION['errors'] = $errors;
+                header("Location: /registration");
+                exit;
+            }
+
+            $pseudo = $sanitizedData['pseudo'];
+            $password = password_hash($sanitizedData['password'], PASSWORD_DEFAULT);
+
+            // Créer l'array $data
+            $data = [
+                'pseudo' => $pseudo,
+                'password' => $password,
+                'admin' => 0
+            ];
+
+            $this->userModel->create($data);
             $userId = $this->userModel->getUserId($pseudo);
 
             if ($userId !== null) {
@@ -52,14 +72,27 @@ class LoginController
 
     private function loginUser(): void
     {
-        if ($this->validateForm(['pseudo', 'password'])) {
-            $pseudo = htmlspecialchars($_POST['pseudo']);
-            $password = $_POST['password'];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $validationResult = FormValidator::validateForm([
+                'pseudo' => 'string',
+                'password' => 'string'
+            ]);
+
+            $errors = $validationResult['errors'];
+            $sanitizedData = $validationResult['data'];
+
+            if (!empty($errors)) {
+                $_SESSION['errors'] = $errors;
+                header("Location: /login");
+                exit;
+            }
+
+            $pseudo = $sanitizedData['pseudo'];
+            $password = $sanitizedData['password'];
 
             $user = $this->userModel->recoverUser($pseudo);
 
             if ($user && password_verify($password, $user['password'])) {
-
                 $this->setSession($pseudo, $user['id']);
 
                 if ($user['admin'] == 1) {
@@ -68,23 +101,15 @@ class LoginController
                     header("Location: /");
                 }
             } else {
-                $_SESSION['message'] = "Votre pseudo ou mot de passe est incorrect...";
+                $_SESSION['errors'] = ['login' => "Votre pseudo ou mot de passe est incorrect..."];
                 header("Location: /login");
+                exit;
             }
         } else {
-            $_SESSION['message'] = "Veuillez remplir tous les champs.";
+            $_SESSION['errors'] = ['form' => "Veuillez remplir tous les champs."];
             header("Location: /login");
+            exit;
         }
-    }
-
-    private function validateForm(array $fields): bool
-    {
-        foreach ($fields as $field) {
-            if (empty($_POST[$field])) {
-                return false;
-            }
-        }
-        return true;
     }
 
     private function setSession($pseudo, $userId): void
