@@ -13,27 +13,33 @@ class Product
         $this->price = $price;
     }
 
-    public function getId() {
+    public function getId(): int
+    {
         return $this->id;
     }
 
-    public function getTitle() {
+    public function getTitle(): string
+    {
         return $this->title;
     }
 
-    public function getPrice() {
+    public function getPrice(): float
+    {
         return $this->price;
     }
 
-    public function setId($id) {
+    public function setId($id): void
+    {
         $this->id = $id;
     }
 
-    public function setTitle($title) {
+    public function setTitle($title): void
+    {
         $this->title = $title;
     }
 
-    public function setPrice($price) {
+    public function setPrice($price): void
+    {
         $this->price = $price;
     }
 

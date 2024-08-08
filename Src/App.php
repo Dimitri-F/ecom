@@ -11,7 +11,7 @@ class App
     {
     }
 
-    public function run()
+    public function run(): void
     {
         try {
             echo $this->router->resolve($this->requestUri);

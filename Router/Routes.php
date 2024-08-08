@@ -22,6 +22,7 @@ $router->register('/registration', ['Controller\LoginController', 'registration'
 $router->register('/logout', ['Controller\LoginController', 'logout']);
 
 //routes d'administration
+//CRUD Product
 $router->register('/admin/products', ['Controller\AdminController', 'listProducts']);
 $router->register('/admin/delete_product/{id}', ['Controller\AdminController', 'deleteProduct']);
 $router->register('/admin/edit_view/{id}', ['Controller\AdminController', 'updateViewProduct']);
