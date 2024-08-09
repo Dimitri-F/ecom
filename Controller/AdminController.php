@@ -59,27 +59,41 @@ class AdminController
         return Renderer::make('create_product', [], 'admin');
     }
 
-    public function createProduct(): void {
+    #[NoReturn] public function createProduct(): void
+    {
         $this->checkAdminAccess();
 
-        $category_id = $_POST['category_id'];
-        $name = htmlspecialchars($_POST['name']);
-        $description = htmlspecialchars($_POST['description']);
-        $price = $_POST['price'];
+        // Valider les données du formulaire
+        $fieldsToValidate = [
+            'category_id' => 'int',
+            'name' => 'string',
+            'description' => 'string',
+            'price' => 'float'
+        ];
 
-        // Gestion de la photo
-        $photoPath = null;
-        if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
-            $photo = $_FILES['photo']['name'];
-            $photoPath = dirname(__DIR__) . '/Public/uploads/' . basename($photo);
+        $validationResult = FormValidator::validateForm($fieldsToValidate);
+        $sanitizedData = $validationResult['data'];
+        $errors = $validationResult['errors'];
 
-            // Vérifier le succès du déplacement du fichier
-            if (!move_uploaded_file($_FILES['photo']['tmp_name'], $photoPath)) {
-                $_SESSION['message'] = "Erreur lors du téléchargement de la photo : " . $photoPath;
-                header("Location: /admin/create_product");
-                exit;
-            }
+        // Valider et gérer la photo
+        $fileValidation = FormValidator::validateFile('photo', ['image/jpeg'], 2 * 1024 * 1024, dirname(__DIR__) . '/Public/uploads'); // 2MB max size
+        if ($fileValidation['error']) {
+            $errors['photo'] = $fileValidation['error'];
         }
+
+        // Si des erreurs existent, les stocker en session et rediriger l'utilisateur
+        if (!empty($errors)) {
+            $_SESSION['errors'] = $errors;
+            $_SESSION['old'] = $_POST; // Conserve les anciennes données pour les réafficher en cas d'erreur
+            header("Location: /admin/create_view");
+            exit;
+        }
+
+        $category_id = $sanitizedData['category_id'];
+        $name = $sanitizedData['name'];
+        $description = $sanitizedData['description'];
+        $price = $sanitizedData['price'];
+        $photo = $fileValidation['filePath'] ? basename($fileValidation['filePath']) : null;
 
         // Créer l'array $data
         $data = [
@@ -100,7 +114,9 @@ class AdminController
         }
 
         header("Location: /admin/products");
+        exit;
     }
+
 
     #[NoReturn] public function deleteProduct($id): void
     {
@@ -118,11 +134,10 @@ class AdminController
 
         $product = $this->productModel->getByID($id);
 
-        $_SESSION['message'] = $product['price'];
         return Renderer::make('edit_product', ['product' => $product], 'admin');
     }
 
-    public function updateProduct(): void
+    #[NoReturn] public function updateProduct(): void
     {
         $this->checkAdminAccess();
 
@@ -141,7 +156,7 @@ class AdminController
 
         if (!empty($errors)) {
             $_SESSION['errors'] = $errors;
-            header("Location: /admin/edit_view/{$_POST['id']}");
+            header("Location: /admin/edit_view/{$sanitizedData['id']}");
             exit;
         }
 
@@ -154,24 +169,30 @@ class AdminController
         // Récupérer les détails actuels du produit
         $product = $this->productModel->getByID($id);
 
+        // Valider et gérer la photo seulement si un fichier a été soumis
+        if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
+            $fileValidation = FormValidator::validateFile('photo', ['image/jpeg'], 2 * 1024 * 1024, dirname(__DIR__) . '/Public/uploads'); // 2MB max size
+
+            if ($fileValidation['error']) {
+                $errors['photo'] = $fileValidation['error'];
+            } else {
+                $photo = basename($fileValidation['filePath']);
+            }
+        } else {
+            // Conserver l'ancienne photo si aucune nouvelle photo n'est téléchargée
+            $photo = $product['photo'];
+        }
+
         // Utiliser la catégorie existante si aucune nouvelle catégorie n'est sélectionnée
         if ($category_id === null) {
             $category_id = $product['category_id'];
         }
 
-        // Gestion de la photo
-        if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
-            $photo = $_FILES['photo']['name'];
-            $photoPath = dirname(__DIR__) . '/Public/uploads/' . basename($photo);
-
-            if (!move_uploaded_file($_FILES['photo']['tmp_name'], $photoPath)) {
-                $_SESSION['message'] = "Erreur lors du téléchargement de la photo.";
-                header("Location: /admin/edit_view/{$id}");
-                exit;
-            }
-        } else {
-            // Conserver l'ancienne photo si aucune nouvelle photo n'est téléchargée
-            $photo = $this->productModel->getProductPhoto($id);
+        // Si des erreurs existent, les stocker en session et rediriger l'utilisateur
+        if (!empty($errors)) {
+            $_SESSION['errors'] = $errors;
+            header("Location: /admin/edit_view/{$id}");
+            exit;
         }
 
         // Créer l'array $data
@@ -191,8 +212,11 @@ class AdminController
         } else {
             $_SESSION['message'] = "Erreur lors de la mise à jour du produit.";
         }
+
         header("Location: /admin/products");
+        exit;
     }
+
 
     // Méthode pour vérifier si l'utilisateur est un administrateur
     private function checkAdminAccess(): void

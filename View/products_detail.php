@@ -6,7 +6,7 @@
 
     <div class="flex font-sans">
         <div class="flex-none w-48 relative">
-            <img src="https://images.unsplash.com/photo-1699412958387-2fe86d46d394?q=80&w=3329&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+            <img src="/uploads/<?= htmlspecialchars($product['photo']) ?>" alt="<?= htmlspecialchars($product['photo']) ?>" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
         </div>
         <form class="flex-auto p-6">
             <div class="flex flex-wrap">
