@@ -8,7 +8,7 @@
 
 <h1>ADMIN : Liste des produits</h1>
 
-<a href="/admin/create_view">+ Nouveau produit</a>
+<a href="/admin/create_product_view">+ Nouveau produit</a>
         <table id="productsTable" class="display">
             <thead>
             <tr>
@@ -34,7 +34,7 @@
                         <td><?= $product['price'] ?> €</td>
                         <td><img  class="object-contain h-48 w-48" src="/uploads/<?= htmlspecialchars($product['photo']) ?>" alt="<?= htmlspecialchars($product['name']) ?>"></td>
                         <td>
-                            <a href="/admin/edit_view/<?= $product['id'] ?>">Modifier</a>
+                            <a href="/admin/edit_product_view/<?= $product['id'] ?>">Modifier</a>
                             <a href="/admin/delete_product/<?=$product['id']?>">Supprimer</a>
                         </td>
                     </tr>

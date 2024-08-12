@@ -48,4 +48,21 @@ class UserModel extends BaseModel
         return $result && $result['admin'] == 1;
     }
 
+    public function toggleAdminStatus(int $userId): void
+    {
+        // Vérifier le statut actuel de l'utilisateur
+        $currentStatus = $this->isAdmin($userId);
+
+        // Inverser le statut (si l'utilisateur est admin, le rendre non-admin et vice versa)
+        $newStatus = $currentStatus ? 0 : 1;
+
+        $stmt = $this->pdo->prepare("UPDATE {$this->table} SET admin = :admin WHERE id = :id");
+        $stmt->bindParam(':admin', $newStatus, PDO::PARAM_INT);
+        $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
+
+        $stmt->execute();
+    }
+
+
+
 }

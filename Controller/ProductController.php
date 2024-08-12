@@ -28,7 +28,7 @@ class ProductController
 
     public function detail($id): Renderer
     {
-        $product = $this->getByID($id);
+        $product = $this->getProductByID($id);
 
         return Renderer::make('products_detail', ['product' => $product]);
     }
@@ -57,7 +57,7 @@ class ProductController
         return $products;
     }
 
-    public function delete($id): void
+    public function deleteProduct($id): void
     {
 
         $this->productModel->delete($id);
@@ -65,13 +65,13 @@ class ProductController
         header("Location: /admin/products");
         exit();
     }
-    public function getById($id): array
+    public function getProductById($id): array
     {
 
         return $this->productModel->getByID($id);
     }
 
-    #[NoReturn] public function create(array $postData): void
+    #[NoReturn] public function createProduct(array $postData): void
     {
         // Valider les données du formulaire
         $fieldsToValidate = [
@@ -128,7 +128,7 @@ class ProductController
         exit;
     }
 
-    #[NoReturn] public function update(): void
+    #[NoReturn] public function updateProduct(): void
     {
         // Valider les données du formulaire
         $fieldsToValidate = [

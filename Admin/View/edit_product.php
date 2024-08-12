@@ -10,7 +10,7 @@
     <form action="/admin/edit_product/<?=$product['id']?>" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="id">ID du produit (non modifiable)</label>
-            <input type="text" id="id" name="id" readonly value="<?php echo htmlspecialchars($product['id']); ?>" required>
+            <input type="text" id="id" name="id" readonly value="<?php echo htmlspecialchars($product['id']); ?>">
         </div>
 
         <div class="form-group">
