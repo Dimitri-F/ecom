@@ -20,7 +20,7 @@ if (isset($_SESSION['message'])) {
 
     <div class="form-group">
         <label for="name">Nom du produit</label>
-        <input type="text" id="name" name="name" value="<?= htmlspecialchars($_SESSION['old']['name'] ?? '') ?>" required>
+        <input type="text" id="name" name="name" value="<?= htmlspecialchars($_SESSION['old']['name'] ?? '') ?>" >
     </div>
 
     <div class="form-group">

@@ -17,7 +17,7 @@
                         </div>
                         <div class="mt-4 flex justify-between">
                             <div>
-                                <p class="text-sm text-gray-500"><?php echo htmlspecialchars($product['id']); ?></p>
+                                <p class="text-sm text-gray-500"><?php echo htmlspecialchars($product['category_name']); ?></p>
                                 <h3 class="text-sm font-medium text-gray-900">
                                     <a href="/products_detail/<?=$product['id']?>">
                                         <span aria-hidden="true" class="absolute inset-0"></span>

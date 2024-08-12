@@ -13,7 +13,7 @@ $router = new Router();
 $router->register('/', ['Controller\HomeController', 'index']);
 
 //Products
-$router->register('/products', ['Controller\ProductController', 'index']);
+$router->register('/products', ['Controller\ProductController', 'list']);
 $router->register('/products_detail/{id}', ['Controller\ProductController', 'detail']);
 
 //Login
