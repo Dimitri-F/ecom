@@ -58,48 +58,57 @@ class LoginController
             $userId = $this->userModel->getUserId($pseudo);
 
             if ($userId !== null) {
-                $this->setSession($pseudo, $userId);
-                header("Location: /");
+                // Appeler la méthode loginUser avec les informations de connexion
+                $this->loginUser($pseudo, $sanitizedData['password']);
             } else {
                 $_SESSION['message'] = "Erreur lors de l'enregistrement.";
                 header("Location: /registration");
+                exit;
             }
         } else {
             $_SESSION['message'] = "Veuillez remplir tous les champs.";
             header("Location: /registration");
+            exit;
         }
     }
 
-    private function loginUser(): void
+    private function loginUser(string $pseudo = null, string $password = null): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $validationResult = FormValidator::validateForm([
-                'pseudo' => 'string',
-                'password' => 'string'
-            ]);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' || ($pseudo !== null && $password !== null)) {
+            // Si pseudo et password ne sont pas fournis, on les récupère du POST
+            if ($pseudo === null && $password === null) {
+                $validationResult = FormValidator::validateForm([
+                    'pseudo' => 'string',
+                    'password' => 'string'
+                ]);
 
-            $errors = $validationResult['errors'];
-            $sanitizedData = $validationResult['data'];
+                $errors = $validationResult['errors'];
+                $sanitizedData = $validationResult['data'];
 
-            if (!empty($errors)) {
-                $_SESSION['errors'] = $errors;
-                header("Location: /login");
-                exit;
+                if (!empty($errors)) {
+                    $_SESSION['errors'] = $errors;
+                    header("Location: /login");
+                    exit;
+                }
+
+                $pseudo = $sanitizedData['pseudo'];
+                $password = $sanitizedData['password'];
             }
-
-            $pseudo = $sanitizedData['pseudo'];
-            $password = $sanitizedData['password'];
 
             $user = $this->userModel->recoverUser($pseudo);
 
             if ($user && password_verify($password, $user['password'])) {
                 $this->setSession($pseudo, $user['id']);
 
+                // Gérer la redirection après connexion
                 if ($user['admin'] == 1) {
                     header("Location: /admin/products");
                 } else {
-                    header("Location: /");
+                    $redirectTo = $_SESSION['redirect_to'] ?? '/';
+                    unset($_SESSION['redirect_to']);
+                    header("Location: " . $redirectTo);
                 }
+                exit;
             } else {
                 $_SESSION['errors'] = ['login' => "Votre pseudo ou mot de passe est incorrect..."];
                 header("Location: /login");
@@ -111,6 +120,7 @@ class LoginController
             exit;
         }
     }
+
 
     private function setSession($pseudo, $userId): void
     {

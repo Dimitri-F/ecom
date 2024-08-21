@@ -22,23 +22,23 @@
                     <div class="text-sm lg:flex-grow mt-2 animated jackinthebox xl:mx-8">
                         <a href="/"
                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
-                            HOME
+                            ACCUEIL
                         </a>
                         <a href="/products"
                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                             ARTICLES
                         </a>
-                        <a href="/users"
+                        <a href="/Favorites"
                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
-                            CLIENTS
+                            FAVORIS
                         </a>
+<!--                        <a href="#home"-->
+<!--                           class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">-->
+<!--                            TOURS-->
+<!--                        </a>-->
                         <a href="#home"
                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
-                            TOURS
-                        </a>
-                        <a href="#home"
-                           class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
-                            CONTACT US
+                            CONTACT
                         </a>
                         <?php if (!isset($_SESSION['userPseudo'])) : ?>
                         <a href="/login"
@@ -51,6 +51,10 @@
                                 SE DECONNECTER
                             </a>
                         <?php endif; ?>
+                        <a href="/cart"
+                           class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                            <img src="/assets/images/cart.png">
+                        </a>
                     </div>
                 </div>
             </nav>

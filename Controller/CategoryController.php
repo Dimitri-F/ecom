@@ -15,7 +15,7 @@ class CategoryController
         $this->categoryModel = new CategoryModel();
     }
 
-    public function getList(): array
+    public function getCategoryList(): array
     {
         return $this->categoryModel->getAll();
     }

@@ -6,7 +6,7 @@ use Class\Renderer;
 
 class HomeController
 {
-    public function index(): Renderer
+    public function showHomePage(): Renderer
     {
         return Renderer::make('home');
     }

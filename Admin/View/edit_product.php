@@ -16,15 +16,21 @@
         <div class="form-group">
             <label for="category_id">Catégorie</label>
             <select id="category_id" name="category_id"  required>
-                <option value="1" <?= $product['category_id'] == 1 ? 'selected' : '' ?>>Laptop</option>
-                <option value="2" <?= $product['category_id'] == 2 ? 'selected' : '' ?>>Desktop PC</option>
-                <option value="3" <?= $product['category_id'] == 3 ? 'selected' : '' ?>>Tablet</option>
+                <?php if (!empty($categories)) : ?>
+                    <?php foreach ($categories as $category) : ?>
+                        <option value="<?= htmlspecialchars($category['id']) ?>" <?= $product['category_id'] == $category['id'] ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($category['name']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <option value="">Aucune catégorie disponible</option>
+                <?php endif; ?>
             </select>
         </div>
 
         <div class="form-group">
             <label for="name">Nom du produit</label>
-            <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($product['name']); ?>"  required>
+            <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($product['name']); ?>">
         </div>
 
         <div class="form-group">

@@ -8,7 +8,7 @@
         <div class="flex-none w-48 relative">
             <img src="/uploads/<?= htmlspecialchars($product['photo']) ?>" alt="<?= htmlspecialchars($product['photo']) ?>" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
         </div>
-        <form class="flex-auto p-6">
+        <form class="flex-auto p-6" method="POST" action="/cart_add/<?=$product['id']?>">
             <div class="flex flex-wrap">
                 <h1 class="flex-auto text-xl font-semibold text-gray-900">
                     <?php echo htmlspecialchars($product['name']); ?>
@@ -17,17 +17,22 @@
                     <p>
                         <?php echo htmlspecialchars($product['price']); ?> €
                     </p>
-
                 </div>
                 <div class="w-full flex-none text-sm font-medium text-black-700 mt-2">
-                    In stock
+                    <?php echo htmlspecialchars($product['description']); ?>
+                </div>
+                <div class="w-full flex-none text-sm font-medium text-black-700 mt-2">
+                    Disponible
                 </div>
             </div>
 
             <div class="flex space-x-4 mb-6 text-sm font-medium">
                 <div class="flex-auto flex space-x-4">
-                    <button class="h-10 px-6 font-semibold rounded-md border border-balck-800 text-gray-900" type="button">
-                        Add to cart
+                    <!-- Ajouter un champ pour sélectionner la quantité -->
+                    <label for="quantity" class="flex items-center text-sm font-medium text-gray-700">Quantité:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" class="h-10 w-16 text-center border border-gray-300 rounded-md">
+                    <button type="submit"  class="h-10 px-6 font-semibold rounded-md border border-balck-800 text-gray-900">
+                        Ajouter au panier
                     </button>
                 </div>
                 <button class="flex-none flex items-center justify-center w-9 h-9 rounded-md text-slate-300 border border-slate-200" type="button" aria-label="Favorites">
@@ -37,7 +42,7 @@
                 </button>
             </div>
             <p class="text-sm text-slate-700">
-                Free shipping
+                Livraison gratuite
             </p>
         </form>
     </div>

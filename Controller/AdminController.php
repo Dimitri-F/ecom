@@ -23,7 +23,7 @@ class AdminController
 
         $this->checkAdminAccess();
 
-        $products = $this->productController->getList();
+        $products = $this->productController->getListProduct();
 
         return Renderer::make('products', ['products' => $products], 'admin');
     }
@@ -32,7 +32,9 @@ class AdminController
     {
         $this->checkAdminAccess();
 
-        return Renderer::make('create_product', [], 'admin');
+        $categories = $this->categoryController->getCategoryList();
+
+        return Renderer::make('create_product', ['categories' => $categories], 'admin');
     }
 
     #[NoReturn] public function adminCreateProduct(): void
@@ -55,8 +57,9 @@ class AdminController
         $this->checkAdminAccess();
 
         $product = $this->productController->getProductById($id);
+        $categories = $this->categoryController->getCategoryList();
 
-        return Renderer::make('edit_product', ['product' => $product], 'admin');
+        return Renderer::make('edit_product', ['product' => $product, 'categories' => $categories], 'admin');
     }
 
     #[NoReturn] public function adminUpdateProduct(): void
@@ -86,7 +89,7 @@ class AdminController
 
         $this->checkAdminAccess();
 
-        $users = $this->userController->getList();
+        $users = $this->userController->getUserList();
 
         return Renderer::make('users', ['users' => $users], 'admin');
     }
@@ -99,7 +102,7 @@ class AdminController
         $this->userController->deleteUser($id);
     }
 
-    public function changeStatus($id): void
+    public function changeUserStatus($id): void
     {
 
         $this->checkAdminAccess();
@@ -113,7 +116,7 @@ class AdminController
 
         $this->checkAdminAccess();
 
-        $categories = $this->categoryController->getList();
+        $categories = $this->categoryController->getCategoryList();
 
         return Renderer::make('categories', ['categories' => $categories], 'admin');
     }

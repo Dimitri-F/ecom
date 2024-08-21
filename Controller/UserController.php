@@ -30,7 +30,7 @@ class UserController
         return $this->userModel->isAdmin($userId);
     }
 
-    public function getList(): array
+    public function getUserList(): array
     {
         return $this->userModel->getAll();
     }

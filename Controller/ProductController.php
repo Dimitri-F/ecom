@@ -13,20 +13,24 @@ class ProductController
     private ProductModel $productModel;
     private CategoryModel $categoryModel;
 
+    public function ok(){
+        echo 'ca marche';
+    }
+
     public function __construct()
     {
         $this->productModel = new ProductModel();
         $this->categoryModel = new CategoryModel();
     }
 
-    public function list(): Renderer
+    public function showProducts(): Renderer
     {
-        $products = $this->getList();
+        $products = $this->getListProduct();
 
         return Renderer::make('products', ['products' => $products]);
     }
 
-    public function detail($id): Renderer
+    public function showDetailProduct($id): Renderer
     {
         $product = $this->getProductByID($id);
 
@@ -37,7 +41,7 @@ class ProductController
      * Récupère tous les produits avec les noms de leurs catégories respectives.
      * @return array
      */
-    public function getList(): array
+    public function getListProduct(): array
     {
         $products = $this->productModel->getAll();
 
@@ -96,7 +100,7 @@ class ProductController
         if (!empty($errors)) {
             $_SESSION['errors'] = $errors;
             $_SESSION['old'] = $postData; // Conserve les anciennes données pour les réafficher en cas d'erreur
-            header("Location: /admin/create_view");
+            header("Location: /admin/create_product_view");
             exit;
         }
 
@@ -145,7 +149,7 @@ class ProductController
 
         if (!empty($errors)) {
             $_SESSION['errors'] = $errors;
-            header("Location: /admin/edit_view/{$sanitizedData['id']}");
+            header("Location: /admin/edit_product_view/{$sanitizedData['id']}");
             exit;
         }
 
@@ -180,7 +184,7 @@ class ProductController
         // Si des erreurs existent, les stocker en session et rediriger l'utilisateur
         if (!empty($errors)) {
             $_SESSION['errors'] = $errors;
-            header("Location: /admin/edit_view/{$id}");
+            header("Location: /admin/edit_product_view/{$id}");
             exit;
         }
 

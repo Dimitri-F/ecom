@@ -10,16 +10,32 @@ $router = new Router();
 
 //routes publiques
 //Home
-$router->register('/', ['Controller\HomeController', 'index']);
+$router->register('/', ['Controller\HomeController', 'showHomePage']);
 
 //Products
-$router->register('/products', ['Controller\ProductController', 'list']);
-$router->register('/products_detail/{id}', ['Controller\ProductController', 'detail']);
+$router->register('/products', ['Controller\ProductController', 'showProducts']);
+$router->register('/products_detail/{id}', ['Controller\ProductController', 'showDetailProduct']);
 
 //Login
 $router->register('/login', ['Controller\LoginController', 'login']);
 $router->register('/registration', ['Controller\LoginController', 'registration']);
 $router->register('/logout', ['Controller\LoginController', 'logout']);
+
+//Cart
+$router->register('/cart', ['Controller\CartController', 'showCart']);
+$router->register('/cart_add/{id}', ['Controller\CartController', 'addToCart']);
+$router->register('/cart_remove/{id}', ['Controller\CartController', 'removeFromCart']);
+$router->register('/cart_update/{id}', ['Controller\CartController', 'updateCart']);
+$router->register('/cart_clear', ['Controller\CartController', 'clearCart']);
+
+//Checkout
+$router->register('/checkout', ['Controller\CartController', 'showCheckout']);
+$router->register('/cancel', ['Controller\PaymentController', 'showCancel']);
+$router->register('/success', ['Controller\PaymentController', 'showSuccess']);
+
+//Webhook
+$router->register('/webhook', ['Controller\WebhookController', 'handle']);
+
 
 //routes d'administration
 //CRUD Product
@@ -33,7 +49,7 @@ $router->register('/admin/create_product', ['Controller\AdminController', 'admin
 //User
 $router->register('/admin/users', ['Controller\AdminController', 'listUsers']);
 $router->register('/admin/delete_user/{id}', ['Controller\AdminController', 'deleteUser']);
-$router->register('/admin/toggle_admin_status/{id}', ['Controller\AdminController', 'changeStatus']);
+$router->register('/admin/toggle_admin_status/{id}', ['Controller\AdminController', 'changeUserStatus']);
 
 //category
 $router->register('/admin/categories', ['Controller\AdminController', 'listCategories']);
