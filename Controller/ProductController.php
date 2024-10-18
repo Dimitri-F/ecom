@@ -2,8 +2,8 @@
 
 namespace Controller;
 
-use Class\FormValidator;
-use Class\Renderer;
+use Src\FormValidator;
+use Src\Renderer;
 use JetBrains\PhpStorm\NoReturn;
 use Model\CategoryModel;
 use Model\ProductModel;
@@ -12,10 +12,6 @@ class ProductController
 {
     private ProductModel $productModel;
     private CategoryModel $categoryModel;
-
-    public function ok(){
-        echo 'ca marche';
-    }
 
     public function __construct()
     {
@@ -30,7 +26,7 @@ class ProductController
         return Renderer::make('products', ['products' => $products]);
     }
 
-    public function showDetailProduct($id): Renderer
+    public function showProductDetail($id): Renderer
     {
         $product = $this->getProductByID($id);
 
@@ -75,7 +71,7 @@ class ProductController
         return $this->productModel->getByID($id);
     }
 
-    #[NoReturn] public function createProduct(array $postData): void
+    public function createProduct(array $postData): void
     {
         // Valider les données du formulaire
         $fieldsToValidate = [
@@ -132,7 +128,7 @@ class ProductController
         exit;
     }
 
-    #[NoReturn] public function updateProduct(): void
+    public function updateProduct(): void
     {
         // Valider les données du formulaire
         $fieldsToValidate = [
@@ -208,6 +204,17 @@ class ProductController
 
         header("Location: /admin/products");
         exit;
+    }
+
+    /**
+     * Récupère les détails des produits.
+     * @param array $ids
+     * @return array
+     */
+    public function getProductDetails(array $ids): array
+    {
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+        return $this->productModel->retrieveProductsByIds($placeholders, $ids);
     }
 
 }

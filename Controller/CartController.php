@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use Class\Renderer;
+use Src\Renderer;
 use Model\CartModel;
 
 class CartController
@@ -14,34 +14,34 @@ class CartController
         $this->cartModel = new CartModel();
     }
 
-//    public function showCart(): Renderer
-//    {
-//        $cartItems = $this->cartModel->getCartItems();
-//        $totalAmount = $this->cartModel->getTotalAmount();
-//
-//        return Renderer::make('cart', [
-//            'cartItems' => $cartItems,
-//            'totalAmount' => $totalAmount,
-//        ]);
-//    }
+    public function getCartProducts() {
+        // Récupérer le panier depuis la session
+        $cartItems = $_SESSION['cart'] ?? [];
+
+        // Tableau pour stocker les produits avec leurs informations
+        $productsWithQuantities = [];
+
+        // Parcourir chaque produit dans le panier
+        foreach ($cartItems as $productId => $quantity) {
+            // Récupérer les détails du produit depuis le modèle
+            $product = $this->cartModel->getProductById($productId);
+
+            if ($product) {
+                // Ajouter la quantité et le sous-total pour chaque produit
+                $product['quantity'] = $quantity;
+                $product['subtotal'] = $product['price'] * $quantity;
+
+                // Ajouter le produit avec les informations supplémentaires dans le tableau
+                $productsWithQuantities[] = $product;
+            }
+        }
+
+        // Retourner la liste des produits avec leurs quantités
+        return $productsWithQuantities;
+    }
+
 
     public function showCart() {
-//        // Récupération des produits dans le panier
-//        $cartItems = $_SESSION['cart'] ?? [];
-//        $products = [];
-//        $totalAmount = 0;
-//
-//        foreach ($cartItems as $productId => $quantity) {
-//            // Récupérer le produit par son ID
-//            $product = $this->cartModel->getProductById($productId);
-//            if ($product) {
-//                $product['quantity'] = $quantity;
-//                $product['subtotal'] = $product['price'] * $quantity;
-//                $products[] = $product;
-//                $totalAmount += $product['subtotal'];
-//            }
-//        }
-
         $cartItems = $_SESSION['cart'] ?? [];
         $products = [];
         $totalAmount = 0;
@@ -62,14 +62,6 @@ class CartController
             'totalAmount' => $totalAmount,
         ]);
     }
-
-//    public function addToCart(int $productId): void
-//    {
-//        $this->cartModel->addProduct($productId);
-//        $_SESSION['message'] = "Nouveau produit ajouté au panier.";
-//        header("Location: /products");
-//        exit;
-//    }
 
     public function addToCart($productId) {
         // Récupérer la quantité de l'article depuis la requête POST
@@ -145,13 +137,24 @@ class CartController
         exit;
     }
 
-    public function showCheckout(): Renderer {
+    public function showPayment(): Renderer {
         if (!isset($_SESSION['userId'])) {
             $_SESSION['redirect_to'] = '/checkout'; // Stocker l'URL de redirection
             header("Location: /login"); // Rediriger vers la page de connexion
             exit;
         }
 
-        return Renderer::make('checkout', []);
+        return Renderer::make('pay', []);
     }
+
+    public function showSuccess(): Renderer
+    {
+        return Renderer::make('success', []);
+    }
+
+    public function showCancel(): Renderer
+    {
+        return Renderer::make('cancel', []);
+    }
+
 }

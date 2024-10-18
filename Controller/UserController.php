@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use Class\Renderer;
+use Src\Renderer;
 use JetBrains\PhpStorm\NoReturn;
 use Model\UserModel;
 
@@ -40,7 +40,7 @@ class UserController
         return $this->userModel->getByID($id);
     }
 
-    #[NoReturn] public function deleteUser($id): void
+    public function deleteUser($id): void
     {
         $this->userModel->delete($id);
 
@@ -48,7 +48,7 @@ class UserController
         exit();
     }
 
-    #[NoReturn] public function changeUserPrivileges($id): void
+    public function changeUserPrivileges($id): void
     {
         $this->userModel->toggleAdminStatus($id);
 

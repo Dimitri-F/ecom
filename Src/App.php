@@ -1,14 +1,19 @@
 <?php
 
-namespace Class;
+namespace Src;
 
 use Exceptions\RouteNotFoundException;
 use Router\Router;
 
 class App
 {
-    public function __construct(private Router $router, private string $requestUri)
+    private Router $router;
+    private string $requestUri;
+
+    public function __construct(Router $router, string $requestUri)
     {
+        $this->requestUri = $requestUri;
+        $this->router = $router;
     }
 
     public function run(): void

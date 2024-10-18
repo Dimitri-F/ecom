@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use Class\Renderer;
+use Src\Renderer;
 
 class HomeController
 {

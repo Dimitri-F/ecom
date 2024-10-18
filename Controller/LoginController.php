@@ -2,8 +2,8 @@
 
 namespace Controller;
 
-use Class\FormValidator;
-use Class\Renderer;
+use Src\FormValidator;
+use Src\Renderer;
 use Model\UserModel;
 
 class LoginController

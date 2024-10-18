@@ -1,6 +1,6 @@
 <?php
 
-namespace Class;
+namespace Src;
 
 /**
  * Class Renderer
@@ -34,7 +34,7 @@ class Renderer
      *
      * @return bool|string Le contenu de la vue rendu ou false en cas d'erreur.
      */
-    public function view(): bool|string
+    public function view()
     {
         ob_start();
         extract($this->params);
@@ -52,10 +52,11 @@ class Renderer
      */
     private function getBaseViewPath(): string
     {
-        return match ($this->viewType) {
-            'admin' => BASE_ADMIN_VIEW_PATH,
-            default => BASE_VIEW_PATH,
-        };
+        if($this->viewType === 'admin'){
+            return BASE_ADMIN_VIEW_PATH;
+        }else {
+            return BASE_VIEW_PATH;
+        }
     }
 
     /**
@@ -66,7 +67,7 @@ class Renderer
      * @param string $viewType Type de vue (public ou admin), détermine le répertoire de base des vues.
      * @return static Une instance de Renderer.
      */
-    public static function make(string $viewPath, array $params = [], string $viewType = 'public'): static
+    public static function make(string $viewPath, array $params = [], string $viewType = 'public'): Renderer
     {
         return new static($viewPath, $params, $viewType);
     }

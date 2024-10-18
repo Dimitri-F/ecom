@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use Class\Renderer;
+use Src\Renderer;
 use JetBrains\PhpStorm\NoReturn;
 
 class AdminController
@@ -11,14 +11,16 @@ class AdminController
     private ProductController $productController;
     private CategoryController $categoryController;
 
+    private OrderController $orderController;
+
     public function __construct() {
         $this->userController = new UserController();
         $this->productController = new ProductController();
         $this->categoryController = new CategoryController();
+        $this->orderController = new OrderController();
     }
 
     //PRODUCTS
-
     public function listProducts(): Renderer{
 
         $this->checkAdminAccess();
@@ -37,14 +39,14 @@ class AdminController
         return Renderer::make('create_product', ['categories' => $categories], 'admin');
     }
 
-    #[NoReturn] public function adminCreateProduct(): void
+    public function adminCreateProduct(): void
     {
         $this->checkAdminAccess();
 
         $this->productController->createProduct($_POST);
     }
 
-    #[NoReturn] public function adminDeleteProduct($id): void
+    public function adminDeleteProduct($id): void
     {
 
       $this->checkAdminAccess();
@@ -62,7 +64,7 @@ class AdminController
         return Renderer::make('edit_product', ['product' => $product, 'categories' => $categories], 'admin');
     }
 
-    #[NoReturn] public function adminUpdateProduct(): void
+     public function adminUpdateProduct(): void
     {
         $this->checkAdminAccess();
 
@@ -94,7 +96,7 @@ class AdminController
         return Renderer::make('users', ['users' => $users], 'admin');
     }
 
-    #[NoReturn] public function deleteUser($id): void
+    public function deleteUser($id): void
     {
 
         $this->checkAdminAccess();
@@ -130,7 +132,7 @@ class AdminController
         return Renderer::make('edit_category', ['category' => $category], 'admin');
     }
 
-    #[NoReturn] public function adminUpdateCategory(): void
+    public function adminUpdateCategory(): void
     {
         $this->checkAdminAccess();
 
@@ -144,18 +146,27 @@ class AdminController
         return Renderer::make('create_category', [], 'admin');
     }
 
-    #[NoReturn] public function adminCreateCategory(): void
+    public function adminCreateCategory(): void
     {
         $this->checkAdminAccess();
 
         $this->categoryController->createCategory($_POST);
     }
 
-    #[NoReturn] public function adminDeleteCategory($id): void
+    public function adminDeleteCategory($id): void
     {
 
         $this->checkAdminAccess();
 
         $this->categoryController->deleteCategory($id);
+    }
+
+    public function listOrders(): Renderer{
+
+        $this->checkAdminAccess();
+
+        $orders = $this->orderController->getOrderList();
+
+        return Renderer::make('orders', ['orders' => $orders], 'admin');
     }
 }

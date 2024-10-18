@@ -2,8 +2,8 @@
     "name": "app/ecom",
     "autoload": {
         "psr-4": {
-            "Class\\": "Src/",
-            "Db\\": "Database/",
+            "Src\\": "Src/",
+            "Database\\": "Database/",
             "Model\\": "Model/",
             "Router\\": "Router/",
             "Exceptions\\": "Exceptions/",
@@ -21,6 +21,7 @@
         "vlucas/phpdotenv": "^5.6",
         "ext-pdo": "*",
       "ext-fileinfo": "*",
-        "stripe/stripe-php": "^15.7"
+        "stripe/stripe-php": "^15.7",
+      "ext-json": "*"
     }
 }

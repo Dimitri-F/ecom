@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use Class\FormValidator;
+use Src\FormValidator;
 use JetBrains\PhpStorm\NoReturn;
 use Model\CategoryModel;
 
@@ -29,7 +29,7 @@ class CategoryController
         exit();
     }
 
-     #[NoReturn] public function updateCategory(): void
+     public function updateCategory(): void
     {
         // Valider les données du formulaire
         $fieldsToValidate = [
@@ -77,7 +77,7 @@ class CategoryController
         return $this->categoryModel->getByID($id);
     }
 
-    #[NoReturn] public function createCategory(array $postData): void
+    public function createCategory(array $postData): void
     {
         // Valider les données du formulaire
         $fieldsToValidate = [
@@ -119,5 +119,6 @@ class CategoryController
         header("Location: /admin/categories");
         exit;
     }
+
 
 }

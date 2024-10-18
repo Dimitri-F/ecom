@@ -50,7 +50,7 @@
     <p><strong>Total : <?= isset($totalAmount) ? htmlspecialchars($totalAmount) : '0' ?> €</strong></p>
     <p><a href="/cart_clear">Vider le panier</a></p>
     <div>
-        <a href="/checkout" class="btn btn-primary">Procéder à l'achat</a>
+        <a href="/pay" class="btn btn-primary">Procéder à l'achat</a>
     </div>
 <?php else : ?>
     <p>Votre panier est vide.</p>

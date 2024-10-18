@@ -1,6 +1,6 @@
 <?php
 
-use Class\App;
+use Src\App;
 use Router\Router;
 
 define('BASE_VIEW_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'View' . DIRECTORY_SEPARATOR);
@@ -14,7 +14,7 @@ $router->register('/', ['Controller\HomeController', 'showHomePage']);
 
 //Products
 $router->register('/products', ['Controller\ProductController', 'showProducts']);
-$router->register('/products_detail/{id}', ['Controller\ProductController', 'showDetailProduct']);
+$router->register('/products_detail/{id}', ['Controller\ProductController', 'showProductDetail']);
 
 //Login
 $router->register('/login', ['Controller\LoginController', 'login']);
@@ -29,13 +29,13 @@ $router->register('/cart_update/{id}', ['Controller\CartController', 'updateCart
 $router->register('/cart_clear', ['Controller\CartController', 'clearCart']);
 
 //Checkout
-$router->register('/checkout', ['Controller\CartController', 'showCheckout']);
-$router->register('/cancel', ['Controller\PaymentController', 'showCancel']);
-$router->register('/success', ['Controller\PaymentController', 'showSuccess']);
+$router->register('/pay', ['Controller\CartController', 'showPayment']);
+$router->register('/cancel', ['Controller\CartController', 'showCancel']);
+$router->register('/success', ['Controller\CartController', 'showSuccess']);
 
-//Webhook
-$router->register('/webhook', ['Controller\WebhookController', 'handle']);
-
+//Order
+$router->register('/orders', ['Controller\OrderController', 'showOrders']);
+$router->register('/orders_detail/{id}', ['Controller\OrderController', 'showOrderDetail']);
 
 //routes d'administration
 //CRUD Product
@@ -58,6 +58,9 @@ $router->register('/admin/edit_category_view/{id}', ['Controller\AdminController
 $router->register('/admin/edit_category/{id}', ['Controller\AdminController', 'adminUpdateCategory']);
 $router->register('/admin/create_category_view', ['Controller\AdminController', 'createViewCategory']);
 $router->register('/admin/create_category', ['Controller\AdminController', 'adminCreateCategory']);
+
+//order
+$router->register('/admin/orders', ['Controller\AdminController', 'listOrders']);
 
 (new App($router, $_SERVER['REQUEST_URI']))->run();
 

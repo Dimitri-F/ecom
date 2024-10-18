@@ -3,6 +3,7 @@ RewriteEngine on
 # Exclure les fichiers statiques (CSS, JS, images) des règles de réécriture
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+
 RewriteRule ^(.*)$ index.php [QSA,L]
 
 

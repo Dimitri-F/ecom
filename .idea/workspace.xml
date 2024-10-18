@@ -5,24 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01624c79-faf2-4a8d-8add-6c8b425cc53f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ecom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ecom.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/View/create_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/create_product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/View/edit_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/edit_product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/CartController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/PaymentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Public/includes/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/Public/includes/head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/webhook.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Spdo.php" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Spdo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BaseModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/BaseModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/CategoryModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/CategoryModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/OrderModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/OrderModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ProductModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/ProductModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/Public/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Public/includes/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Public/includes/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Router/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/Router/Router.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Router/Routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Router/Routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/products_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/products_detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/Src/App.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/FormValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/Src/FormValidator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/Renderer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Renderer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/checkout.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/sales.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/orders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +54,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.2">
     <include_path>
@@ -85,11 +99,11 @@
       <recent name="C:\wamp64\www\ecom" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\ecom\View" />
       <recent name="C:\wamp64\www\ecom\Public" />
       <recent name="C:\wamp64\www\ecom" />
       <recent name="C:\wamp64\www\ecom\Public\assets" />
       <recent name="C:\wamp64\www\ecom\admin" />
-      <recent name="C:\wamp64\www\ecom\src" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -135,6 +149,16 @@
       <workItem from="1723717554612" duration="6487000" />
       <workItem from="1724139939098" duration="3467000" />
       <workItem from="1724233783695" duration="12661000" />
+      <workItem from="1724321209065" duration="2061000" />
+      <workItem from="1728397893260" duration="4115000" />
+      <workItem from="1728475902006" duration="6542000" />
+      <workItem from="1728563861299" duration="3795000" />
+      <workItem from="1728720112245" duration="7943000" />
+      <workItem from="1728898756583" duration="12214000" />
+      <workItem from="1728929808956" duration="1510000" />
+      <workItem from="1728931669028" duration="1216000" />
+      <workItem from="1728985802840" duration="19712000" />
+      <workItem from="1729079541379" duration="18867000" />
     </task>
     <servers />
   </component>

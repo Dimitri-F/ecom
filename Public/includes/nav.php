@@ -28,17 +28,9 @@
                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                             ARTICLES
                         </a>
-                        <a href="/Favorites"
+                        <a href="/about"
                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
-                            FAVORIS
-                        </a>
-<!--                        <a href="#home"-->
-<!--                           class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">-->
-<!--                            TOURS-->
-<!--                        </a>-->
-                        <a href="#home"
-                           class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
-                            CONTACT
+                            &Aacute; PROPOS
                         </a>
                         <?php if (!isset($_SESSION['userPseudo'])) : ?>
                         <a href="/login"
@@ -46,6 +38,10 @@
                             SE CONNECTER
                         </a>
                         <?php else : ?>
+                            <a href="/orders"
+                               class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                                MES COMMANDES
+                            </a>
                             <a href="/logout"
                                class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                                 SE DECONNECTER

@@ -4,5 +4,5 @@ namespace Model;
 
 class CategoryModel extends BaseModel
 {
-    protected string $table = 'category';
+    protected string $table = 'categories';
 }

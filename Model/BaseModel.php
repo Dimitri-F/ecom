@@ -2,7 +2,7 @@
 
 namespace Model;
 
-use Db\Spdo;
+use Database\Spdo;
 use PDO;
 use PDOException;
 

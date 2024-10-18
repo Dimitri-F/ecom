@@ -1,9 +1,9 @@
 <?php
 
-namespace Db;
+namespace Database;
 
 use PDO;
-use PDOStatement;
+require '../config.php';
 
 class Spdo
 {
@@ -13,7 +13,7 @@ class Spdo
      * @var SPDO
      * @access private
      */
-    private null|PDO $PDOInstance = null;
+    private ?PDO $PDOInstance = null;
 
 
     /**
@@ -30,28 +30,28 @@ class Spdo
      *
      * @var string
      */
-    const DEFAULT_SQL_USER = 'root';
+    const DEFAULT_SQL_USER = USER;
 
     /**
      * Constante: hôte de la bdd
      *
      * @var string
      */
-    const DEFAULT_SQL_HOST = 'localhost';
+    const DEFAULT_SQL_HOST = HOST;
 
     /**
      * Constante: hôte de la bdd
      *
      * @var string
      */
-    const DEFAULT_SQL_PASS = '';
+    const DEFAULT_SQL_PASS = PASSWORD;
 
     /**
      * Constante: nom de la bdd
      *
      * @var string
      */
-    const DEFAULT_SQL_DTB = 'ecomm';
+    const DEFAULT_SQL_DTB = DB_NAME;
 
     /**
      * Constructeur
@@ -89,4 +89,8 @@ class Spdo
         return $this->PDOInstance->prepare($query);
     }
 
+//    public function query(string $query)
+//    {
+//        return $this->PDOInstance->query($query);
+//    }
 }
