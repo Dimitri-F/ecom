@@ -56,11 +56,8 @@ class PaymentController
         // Récupérer les détails des produits depuis la BDD
         $products = $this->productController->getProductDetails($productIds);
 
-        //Stocker les noms des produits
-        $productsNames = array_column($products, 'name');
-
-        // Convertir les noms des produits en chaîne de caractères
-        $productsNamesStr = implode(', ', $productsNames);
+        //Stocker les détails des produits du panier dans un Json
+        $productsJson = $this->cartController->getCartProductsAsJson();
 
         // Construire les éléments de ligne pour Stripe
         $lineItems = array_map(function ($product) use ($cart) {
@@ -93,7 +90,7 @@ class PaymentController
                 ],
                 'metadata' => [
                     'user_id' => $userId,
-                    'products'=> $productsNamesStr
+                    'products'=> $productsJson
                 ]
             ]);
 
@@ -126,12 +123,12 @@ class PaymentController
 
         // En fonction de l'évènement reçu par le webhook
         if ($event->type === 'checkout.session.completed'){
-            // Gérez la session de paiement terminée
+            // Gérer la session de paiement terminée
             $data = $event->data['object'];
             $client = new StripeClient($this->clientSecret);
             $stripeSessionId = $data['id'];
 
-            // Récupérer les détails de la session
+            // Récupérer la session Stripe selon l'ID
             $sessionStripe = $client->checkout->sessions->retrieve($stripeSessionId, []);
 
             // Accéder à l'adresse de livraison
@@ -141,7 +138,7 @@ class PaymentController
             $userId = $sessionStripe->metadata->user_id;
 
             //Récupérer les produits de la commande
-            $productsLines =  $sessionStripe->metadata->products;
+            $productsJson =  $sessionStripe->metadata->products;
 
             // Récupérer le montant total de la session (en cents)
             $amountCent = $sessionStripe->amount_total;
@@ -165,7 +162,7 @@ class PaymentController
                     $fullStreet = $streetLine1;
                 }
 
-                $this->orderController->createOrder($userId, $fullStreet, $postalCode, $city, $country, $productsLines, $amount);
+                $this->orderController->createOrder($userId, $fullStreet, $postalCode, $city, $country, $productsJson, $amount);
             }
 
         }

@@ -13,33 +13,32 @@ class CartController
     {
         $this->cartModel = new CartModel();
     }
-
-    public function getCartProducts() {
-        // Récupérer le panier depuis la session
-        $cartItems = $_SESSION['cart'] ?? [];
-
-        // Tableau pour stocker les produits avec leurs informations
-        $productsWithQuantities = [];
-
-        // Parcourir chaque produit dans le panier
-        foreach ($cartItems as $productId => $quantity) {
-            // Récupérer les détails du produit depuis le modèle
-            $product = $this->cartModel->getProductById($productId);
-
-            if ($product) {
-                // Ajouter la quantité et le sous-total pour chaque produit
-                $product['quantity'] = $quantity;
-                $product['subtotal'] = $product['price'] * $quantity;
-
-                // Ajouter le produit avec les informations supplémentaires dans le tableau
-                $productsWithQuantities[] = $product;
-            }
-        }
-
-        // Retourner la liste des produits avec leurs quantités
-        return $productsWithQuantities;
-    }
-
+//
+//    public function getCartProducts() {
+//        // Récupérer le panier depuis la session
+//        $cartItems = $_SESSION['cart'] ?? [];
+//
+//        // Tableau pour stocker les produits avec leurs informations
+//        $productsWithQuantities = [];
+//
+//        // Parcourir chaque produit dans le panier
+//        foreach ($cartItems as $productId => $quantity) {
+//            // Récupérer les détails du produit depuis le modèle
+//            $product = $this->cartModel->getProductById($productId);
+//
+//            if ($product) {
+//                // Ajouter la quantité et le sous-total pour chaque produit
+//                $product['quantity'] = $quantity;
+//                $product['subtotal'] = $product['price'] * $quantity;
+//
+//                // Ajouter le produit avec les informations supplémentaires dans le tableau
+//                $productsWithQuantities[] = $product;
+//            }
+//        }
+//
+//        // Retourner la liste des produits avec leurs quantités
+//        return $productsWithQuantities;
+//    }
 
     public function showCart() {
         $cartItems = $_SESSION['cart'] ?? [];
@@ -136,6 +135,40 @@ class CartController
         header("Location: /cart");
         exit;
     }
+
+    public function getCartProductsAsJson() {
+        // Récupérer le panier depuis la session
+        $cartItems = $_SESSION['cart'] ?? [];
+
+        // Initialiser un tableau pour stocker les produits avec leurs informations
+        $productsJson = [];
+
+        // Initialiser un compteur pour nommer les produits dans le JSON
+        $counter = 1;
+
+        // Parcourir chaque produit dans le panier
+        foreach ($cartItems as $productId => $quantity) {
+            // Récupérer les détails du produit depuis le modèle
+            $product = $this->cartModel->getProductById($productId);
+
+            if ($product) {
+                // Ajouter le produit dans le tableau JSON avec ses informations
+                $productsJson["produit_$counter"] = [
+                    'nom' => $product['name'],
+                    'prix' => $product['price'],
+                    'desc' => $product['description'],
+                    'quantité' => $quantity
+                ];
+
+                $counter++;
+            }
+        }
+
+        // Convertir le tableau en JSON et le retourner
+        return json_encode($productsJson);
+    }
+
+
 
     public function showPayment(): Renderer {
         if (!isset($_SESSION['userId'])) {
