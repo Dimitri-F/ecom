@@ -154,10 +154,10 @@ class CartController
             if ($product) {
                 // Ajouter le produit dans le tableau JSON avec ses informations
                 $productsJson["produit_$counter"] = [
-                    'nom' => $product['name'],
-                    'prix' => $product['price'],
-                    'desc' => $product['description'],
-                    'quantité' => $quantity
+                    'name' => $product['name'],
+                    'price' => $product['price'],
+                    'description' => $product['description'],
+                    'quantity' => $quantity
                 ];
 
                 $counter++;

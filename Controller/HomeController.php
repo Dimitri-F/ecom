@@ -10,4 +10,9 @@ class HomeController
     {
         return Renderer::make('home');
     }
+
+    public function showAboutPage(): Renderer
+    {
+        return Renderer::make('about');
+    }
 }

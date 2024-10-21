@@ -11,23 +11,25 @@
         <?php if (!empty($products)) : ?>
             <div class="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:gap-x-8">
                 <?php foreach ($products as $product) : ?>
-                    <div class="group relative">
-                        <div class="w-full overflow-hidden rounded-md bg-gray-200 lg:h-80">
-                            <img src="/uploads/<?= htmlspecialchars($product['photo']) ?>" alt="Black machined steel pen with hexagonal grip and small white logo at top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+
+                    <a href="/products_detail/<?=$product['id']?>" class="group block">
+                        <img
+                                src="/uploads/<?= htmlspecialchars($product['photo']) ?>"
+                                alt=""
+                                class="aspect-square w-full rounded object-cover"
+                        />
+
+                        <div class="mt-3">
+                            <h2 class="font-medium text-gray-500">
+                                <?php echo htmlspecialchars($product['category_name']); ?>
+                            </h2>
+                            <h3 class="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
+                                <?php echo htmlspecialchars($product['name']); ?>
+                            </h3>
+
+                            <p class="mt-1 text-sm text-gray-700"><?php echo htmlspecialchars($product['price']); ?> €</p>
                         </div>
-                        <div class="mt-4 flex justify-between">
-                            <div>
-                                <p class="text-sm text-gray-500"><?php echo htmlspecialchars($product['category_name']); ?></p>
-                                <h3 class="text-sm font-medium text-gray-900">
-                                    <a href="/products_detail/<?=$product['id']?>">
-                                        <span aria-hidden="true" class="absolute inset-0"></span>
-                                        <?php echo htmlspecialchars($product['name']); ?>
-                                    </a>
-                                </h3>
-                            </div>
-                            <p class="text-sm font-medium text-gray-900"><?php echo htmlspecialchars($product['price']); ?> €</p>
-                        </div>
-                    </div>
+                    </a>
                 <?php endforeach; ?>
             </div>
         <?php else : ?>

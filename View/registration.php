@@ -10,20 +10,68 @@ $loginController = new LoginController();
 $loginController->handleRequest();
 ?>
 
-<h1 class="text-center">REGISTRATION PAGE</h1>
-<div class="flex items-center justify-center">
-    <form method="POST" action="" class="m-5">
-        <div>
-            <label for="pseudo"></label>
-            <input type="text" name="pseudo">
-        </div>
-        <div>
-            <label for="password"></label>
-            <input type="password" name="password">
-        </div>
-        <input class="inline-block rounded bg-indigo-600 my-5 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500" type="submit" name="registration">
-    </form>
-</div>
+<!--<h1 class="text-center">REGISTRATION PAGE</h1>-->
+<!--<div class="flex items-center justify-center">-->
+<!--    <form method="POST" action="" class="m-5">-->
+<!--        <div>-->
+<!--            <label for="pseudo"></label>-->
+<!--            <input type="text" name="pseudo">-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label for="password"></label>-->
+<!--            <input type="password" name="password">-->
+<!--        </div>-->
+<!--        <input class="inline-block rounded bg-indigo-600 my-5 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500" type="submit" name="registration">-->
+<!--    </form>-->
+<!--</div>-->
+
+    <h1 class="text-center text-4xl font-bold mb-8 text-gray-800">Inscription</h1>
+
+    <div class="flex items-center justify-center min-h-screen bg-gray-100">
+        <form method="POST" action="" class="bg-white shadow-md rounded-lg p-8 w-full max-w-sm">
+            <!-- Pseudo Field -->
+            <div class="mb-6">
+                <label for="pseudo" class="block text-gray-700 text-sm font-bold mb-2">Pseudo</label>
+                <input
+                        type="text"
+                        name="pseudo"
+                        id="pseudo"
+                        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-600 focus:outline-none"
+                        placeholder="Entrez votre pseudo"
+                        required
+                >
+            </div>
+
+            <!-- Password Field -->
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Mot de passe</label>
+                <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-600 focus:outline-none"
+                        placeholder="Entrez votre mot de passe"
+                        required
+                >
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex items-center justify-between">
+                <input
+                        type="submit"
+                        name="registration"
+                        value="S'inscrire"
+                        class="w-full inline-block rounded-lg bg-indigo-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-105 hover:shadow-lg focus:outline-none focus:ring focus:ring-indigo-300 active:bg-indigo-500 cursor-pointer"
+                >
+            </div>
+
+            <!-- Login Link -->
+            <div class="text-center mt-6">
+                <p class="text-gray-600">Déjà inscrit ? <a href="/login" class="text-indigo-600 hover:text-indigo-800 font-bold transition duration-300">Connectez-vous ici</a></p>
+            </div>
+        </form>
+    </div>
+
 
 <?php if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])): ?>
     <div class="errors">

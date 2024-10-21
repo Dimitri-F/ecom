@@ -2,16 +2,19 @@
 
 namespace Controller;
 
+use Model\CartModel;
 use Model\OrderModel;
 use Src\Renderer;
 
 class OrderController
 {
     private OrderModel $orderModel;
+    private CartModel  $cartModel;
 
     public function __construct()
     {
         $this->orderModel = new OrderModel();
+        $this->cartModel = new CartModel();
     }
 
     public function createOrder(int $userId, string $fulladdress, string $postalCode, string $city, string $country, string $products, float $amount){
@@ -27,6 +30,7 @@ class OrderController
             'amount' => $amount
         ];
         $this->orderModel->create($data);
+        $this->cartModel->clearCart();
     }
 
     public function getOrderList(): array
@@ -57,6 +61,11 @@ class OrderController
     {
         $order = $this->getOrderByID($id);
 
+        // Décoder les produits JSON en tableau PHP
+        $order['products'] = json_decode($order['products'], true);
+
         return Renderer::make('orders_detail', ['order' => $order]);
     }
+
+
 }

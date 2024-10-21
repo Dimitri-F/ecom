@@ -12,6 +12,9 @@ $router = new Router();
 //Home
 $router->register('/', ['Controller\HomeController', 'showHomePage']);
 
+//about
+$router->register('/about', ['Controller\HomeController', 'showAboutPage']);
+
 //Products
 $router->register('/products', ['Controller\ProductController', 'showProducts']);
 $router->register('/products_detail/{id}', ['Controller\ProductController', 'showProductDetail']);

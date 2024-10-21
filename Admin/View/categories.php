@@ -8,7 +8,7 @@ if (isset($_SESSION['message'])) {
 
 <h1>ADMIN : Liste des catégories</h1>
 
-<a href="/admin/create_category_view">+ Nouvelle catégorie</a>
+<a class="m-6 inline-block rounded-md bg-blue-500 px-4 py-2 text-white shadow-sm focus:relative hover:bg-blue-600 transition duration-300" href="/admin/create_category_view">+ Nouvelle catégorie</a>
 
 <table id="categoriesTable" class="display">
     <thead>
@@ -28,8 +28,8 @@ if (isset($_SESSION['message'])) {
                 <td><?= $categorie['name'] ?></td>
                 <td><?= $categorie['cat_slug'] ?></td>
                 <td>
-                    <a href="/admin/edit_category_view/<?=$categorie['id']?>">Modifier</a>
-                    <a href="/admin/delete_category/<?=$categorie['id']?>">Supprimer</a>
+                    <a class="m-6 inline-block rounded-md bg-yellow-500 px-4 py-2 text-white shadow-sm focus:relative hover:bg-yellow-600 transition duration-300" href="/admin/edit_category_view/<?=$categorie['id']?>">Modifier</a>
+                    <a class="m-6 inline-block rounded-md bg-red-500 px-4 py-2 text-white shadow-sm focus:relative hover:bg-red-600 transition duration-300" href="/admin/delete_category/<?=$categorie['id']?>">Supprimer</a>
                 </td>
             </tr>
         <?php endforeach;

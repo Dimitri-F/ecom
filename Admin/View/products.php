@@ -8,7 +8,7 @@
 
 <h1>ADMIN : Liste des produits</h1>
 
-<a href="/admin/create_product_view">+ Nouveau produit</a>
+<a class="m-6 inline-block rounded-md bg-blue-500 px-4 py-2 text-white shadow-sm focus:relative hover:bg-blue-600 transition duration-300" href="/admin/create_product_view">+ Nouveau produit</a>
         <table id="productsTable" class="display">
             <thead>
             <tr>
@@ -34,8 +34,8 @@
                         <td><?= $product['price'] ?> €</td>
                         <td><img  class="object-contain h-48 w-48" src="/uploads/<?= htmlspecialchars($product['photo']) ?>" alt="<?= htmlspecialchars($product['name']) ?>"></td>
                         <td>
-                            <a href="/admin/edit_product_view/<?= $product['id'] ?>">Modifier</a>
-                            <a href="/admin/delete_product/<?=$product['id']?>">Supprimer</a>
+                            <a class="m-2 inline-block rounded-md bg-yellow-500 px-4 py-2 text-white shadow-sm focus:relative hover:bg-yellow-600 transition duration-300" href="/admin/edit_product_view/<?= $product['id'] ?>">Modifier</a>
+                            <a class="m-2 inline-block rounded-md bg-red-500 px-4 py-2 text-white shadow-sm focus:relative hover:bg-red-600 transition duration-300" href="/admin/delete_product/<?=$product['id']?>">Supprimer</a>
                         </td>
                     </tr>
                 <?php endforeach;

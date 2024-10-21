@@ -28,21 +28,22 @@
             </tr>
             </thead>
             <tbody>
-            <!-- Produit 1 -->
-            <tr class="border-b">
-                <td class="px-4 py-2">PC de bureau A</td>
-                <td class="px-4 py-2">1</td>
-                <td class="px-4 py-2">1249.99 €</td>
-                <td class="px-4 py-2">1249.99 €</td>
-            </tr>
-            <!-- Produit 2 -->
-            <tr class="border-b">
-                <td class="px-4 py-2">Clavier mécanique</td>
-                <td class="px-4 py-2">1</td>
-                <td class="px-4 py-2">100.00 €</td>
-                <td class="px-4 py-2">100.00 €</td>
-            </tr>
-            <!-- Ajouter plus de produits ici -->
+            <!-- Parcourir les produits et afficher chaque produit -->
+            <?php if (!empty($order['products'])): ?>
+                <?php foreach ($order['products'] as $product): ?>
+                    <tr class="border-b">
+                        <td class="px-4 py-2"><?= htmlspecialchars($product['name']) ?></td>
+                        <td class="px-4 py-2"><?= htmlspecialchars($product['quantity']) ?></td>
+                        <td class="px-4 py-2"><?= htmlspecialchars($product['price']) ?> €</td>
+                        <td class="px-4 py-2"><?= htmlspecialchars($product['price']) * htmlspecialchars($product['quantity']) ?> €</td>
+                    </tr>
+
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="4" class="px-4 py-2 text-center text-gray-500">Aucun produit dans cette commande.</td>
+                </tr>
+            <?php endif; ?>
             </tbody>
         </table>
     </div>

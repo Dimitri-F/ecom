@@ -167,6 +167,17 @@ class AdminController
 
         $orders = $this->orderController->getOrderList();
 
+        // Parcourir chaque commande
+        foreach ($orders as &$order) {
+            // Si le champ products est non nul, décoder le JSON, sinon définir un tableau vide
+            $order['products'] = isset($order['products']) ? json_decode($order['products'], true) : [];
+
+            // Si la conversion en tableau échoue, on initialise à un tableau vide
+            if (!is_array($order['products'])) {
+                $order['products'] = [];
+            }
+        }
+
         return Renderer::make('orders', ['orders' => $orders], 'admin');
     }
 }

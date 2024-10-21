@@ -2,6 +2,7 @@
 
 namespace Router;
 
+use Controller\ErrorController;
 use Exceptions\RouteNotFoundException;
 
 class Router
@@ -45,7 +46,9 @@ class Router
             }
         }
 
-        throw new RouteNotFoundException();
+        // Si aucune route n'a été trouvée
+        $errorController = new ErrorController();
+        return $errorController->pageNotFound();
     }
 
 }
