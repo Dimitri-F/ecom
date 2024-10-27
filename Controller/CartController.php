@@ -168,11 +168,9 @@ class CartController
         return json_encode($productsJson);
     }
 
-
-
     public function showPayment(): Renderer {
         if (!isset($_SESSION['userId'])) {
-            $_SESSION['redirect_to'] = '/checkout'; // Stocker l'URL de redirection
+            $_SESSION['redirect_to'] = '/pay'; // Stocker l'URL de redirection
             header("Location: /login"); // Rediriger vers la page de connexion
             exit;
         }

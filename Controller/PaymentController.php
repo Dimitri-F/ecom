@@ -99,7 +99,7 @@ class PaymentController
         } catch (\Exception $e) {
             echo "Erreur lors de la création de la session de paiement : " . $e->getMessage();
         }
-
+        $_SESSION['cart'] = [];
     }
 
     public function handle($payload, $sigHeader){

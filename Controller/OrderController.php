@@ -30,7 +30,6 @@ class OrderController
             'amount' => $amount
         ];
         $this->orderModel->create($data);
-        $this->cartModel->clearCart();
     }
 
     public function getOrderList(): array
