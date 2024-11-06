@@ -2,20 +2,17 @@
 
 ?>
 
-<!-- component -->
-<div class="h-screen bg-gray-50 flex items-center">
-    <section class="w-full bg-cover bg-center" style="background-image: url('assets/images/jumbotron.jpg">
-        <div class="container mx-auto text-center bg-gray-200 rounded p-5 bg-opacity-20 text-white">
-            <h1 class="text-5xl font-medium mb-6">Bienvenue sur notre site</h1>
-            <p class="text-xl mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio,
-                gravida pellentesque urna varius vitae.</p>
-        </div>
-    </section>
-</div>
+<!-- Container principal-->
+<!--<div class="flex justify-center items-center py-8 bg-gray-50">-->
+<!--    <h1 class="bg-gray-500 bg-opacity-20 p-5 text-5xl font-medium mb-6">Bienvenue sur notre site</h1>-->
+<!--    <img src="assets/images/home.jpg" alt="Home Image" class="max-w-full h-auto rounded-lg shadow-lg">-->
+<!--</div>-->
 
-<!-- Container principal -->
-<div class="flex justify-center items-center py-8 bg-gray-50">
+<div class="relative flex items-center justify-center min-h-screen bg-gray-50 mt-10">
     <img src="assets/images/home.jpg" alt="Home Image" class="max-w-full h-auto rounded-lg shadow-lg">
+    <h1 class="absolute text-white bg-gray-500 bg-opacity-50 px-6 py-3 text-5xl font-medium text-center rounded">
+        Bienvenue sur le site
+    </h1>
 </div>
 
 
@@ -23,7 +20,7 @@
 <section class="bg-white">
     <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <h2 class="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Lire les avis de nos clients
+            Les avis de nos clients
         </h2>
 
         <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
