@@ -2,46 +2,54 @@
 
 <!-- component -->
 <header>
-
     <div class="grid py-4 px-2 lg:mx-4 xl:mx-12 place-content-end">
-        <div class="">
-            <nav class="flex items-center justify-between flex-wrap  ">
+        <div>
+            <nav class="flex items-center justify-between flex-wrap">
+                <!-- Menu burger -->
                 <div class="block lg:hidden">
                     <button
-                        class="navbar-burger flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white">
-                        <svg class="fill-current h-6 w-6 text-gray-700" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
+                            id="navbar-burger"
+                            class="navbar-burger flex items-center px-3 py-2 border rounded text-gray-700 border-gray-700 hover:text-gray-900 hover:border-gray-900">
+                        <!-- Icône des trois barres -->
+                        <svg id="menu-icon" class="fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <title>Menu</title>
                             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
                         </svg>
+                        <!-- Icône de la croix -->
+                        <svg id="close-icon" class="fill-current h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <title>Fermer</title>
+                            <path d="M10 8.586l-4.293-4.293-1.414 1.414L8.586 10l-4.293 4.293 1.414 1.414L10 11.414l4.293 4.293 1.414-1.414L11.414 10l4.293-4.293-1.414-1.414L10 8.586z" />
+                        </svg>
                     </button>
                 </div>
-                <div id="main-nav" class="w-full flex-grow lg:flex items-center lg:w-auto hidden  ">
+
+                <!-- Navigation principale -->
+                <div id="main-nav" class="w-full flex-grow lg:flex items-center lg:w-auto hidden">
                     <div class="text-sm lg:flex-grow mt-2 animated jackinthebox xl:mx-8">
                         <a href="/admin/products"
-                           class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                           class="block lg:inline-block text-md font-bold text-gray-900 sm:hover:border-indigo-400 hover:text-orange-500 mx-2 focus:text-blue-500 p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                             PRODUITS
                         </a>
                         <a href="/admin/categories"
-                           class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                           class="block lg:inline-block text-md font-bold text-gray-900 sm:hover:border-indigo-400 hover:text-orange-500 mx-2 focus:text-blue-500 p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                             CATEGORIES
                         </a>
                         <a href="/admin/orders"
-                           class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                           class="block lg:inline-block text-md font-bold text-gray-900 sm:hover:border-indigo-400 hover:text-orange-500 mx-2 focus:text-blue-500 p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                             COMMANDES
                         </a>
                         <a href="/admin/users"
-                           class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                           class="block lg:inline-block text-md font-bold text-gray-900 sm:hover:border-indigo-400 hover:text-orange-500 mx-2 focus:text-blue-500 p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                             UTILISATEURS
                         </a>
                         <?php if (!isset($_SESSION['userPseudo'])) : ?>
                             <a href="/login"
-                               class="block lg:inline-block text-md font-bold text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                               class="block lg:inline-block text-md font-bold text-gray-900 sm:hover:border-indigo-400 hover:text-orange-500 mx-2 focus:text-blue-500 p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                                 SE CONNECTER
                             </a>
                         <?php else : ?>
                             <a href="/logout"
-                               class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                               class="block lg:inline-block text-md font-bold text-gray-900 sm:hover:border-indigo-400 hover:text-orange-500 mx-2 focus:text-blue-500 p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                                 SE DECONNECTER
                             </a>
                         <?php endif; ?>
@@ -51,37 +59,24 @@
         </div>
     </div>
     <?php if (isset($_SESSION['userPseudo'])) : ?>
-        <h2 class="block lg:inline-block text-md font-bold text-gray-900 mx-2 p-1"> Bonjour, <?=$_SESSION['userPseudo']?></h2>
+        <h2 class="block lg:inline-block text-md font-bold text-gray-900 mx-2 p-1"> Bonjour, <?= $_SESSION['userPseudo'] ?></h2>
     <?php endif; ?>
 </header>
 
-
-
-
-
 <script>
-    // Navbar Toggle
     document.addEventListener('DOMContentLoaded', function () {
+        const navbarBurger = document.getElementById('navbar-burger');
+        const mainNav = document.getElementById('main-nav');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
 
-        // Get all "navbar-burger" elements
-        var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        navbarBurger.addEventListener('click', function () {
+            // Basculer la visibilité du menu principal
+            mainNav.classList.toggle('hidden');
 
-        // Check if there are any navbar burgers
-        if ($navbarBurgers.length > 0) {
-
-            // Add a click event on each of them
-            $navbarBurgers.forEach(function ($el) {
-                $el.addEventListener('click', function () {
-
-                    // Get the "main-nav" element
-                    var $target = document.getElementById('main-nav');
-
-                    // Toggle the class on "main-nav"
-                    $target.classList.toggle('hidden');
-
-                });
-            });
-        }
-
+            // Basculer les icônes
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
     });
 </script>

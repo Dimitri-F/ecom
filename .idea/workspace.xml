@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01624c79-faf2-4a8d-8add-6c8b425cc53f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/ecom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ecom.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/View/orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/View/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/View/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/includes/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/includes/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Public/includes/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/includes/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/Public/includes/head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/includes/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Public/includes/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/about.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/products_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/products_detail.php" afterDir="false" />
     </list>
@@ -14,7 +24,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -64,7 +74,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;web-ide.project.structure&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -137,7 +147,10 @@
       <workItem from="1729490822253" duration="12934000" />
       <workItem from="1729592734208" duration="2131000" />
       <workItem from="1730033159615" duration="5267000" />
-      <workItem from="1730899046444" duration="2154000" />
+      <workItem from="1730899046444" duration="2792000" />
+      <workItem from="1731503445354" duration="4747000" />
+      <workItem from="1731928097484" duration="438000" />
+      <workItem from="1731928661727" duration="6200000" />
     </task>
     <servers />
   </component>

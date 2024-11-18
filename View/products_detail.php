@@ -6,11 +6,15 @@
 
 <?php if (!empty($product)) : ?>
     <div class="flex min-h-screen items-center justify-center bg-gray-100 m-2">
-        <div class="flex font-sans bg-white shadow-lg rounded-lg overflow-hidden">
-            <div class="flex-none w-96 relative"> <!-- Agrandi ici -->
-                <img src="/uploads/<?= htmlspecialchars($product['photo']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <!-- Conteneur principal -->
+        <div class="flex flex-col lg:flex-row font-sans bg-white shadow-lg rounded-lg overflow-hidden">
+            <!-- Section image -->
+            <div class="flex-none w-full lg:w-96">
+                <img src="/uploads/<?= htmlspecialchars($product['photo']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="w-full h-full object-cover" loading="lazy" />
             </div>
+            <!-- Section détails et formulaire -->
             <form class="flex-auto p-6" method="POST" action="/cart_add/<?=$product['id']?>">
+
                 <div class="flex flex-col">
                     <h1 class="text-2xl font-bold text-gray-900 mb-2">
                         <?= htmlspecialchars($product['name']); ?>
@@ -41,7 +45,6 @@
             </form>
         </div>
     </div>
-
 
 <?php else : ?>
     <p class="mt-8 text-center text-gray-500">Aucun article trouvé.</p>

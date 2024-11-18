@@ -26,8 +26,8 @@ if (isset($_SESSION['message'])) {
                 <td><?= $user['pseudo'] ?></td>
                 <td><?php echo $user['admin'] == 1 ? "oui" : "non"; ?></td>
                 <td>
-                    <a href="/admin/toggle_admin_status/<?=$user['id']?>">Changer droits</a>
-                    <a href="/admin/delete_user/<?=$user['id']?>">Supprimer</a>
+                    <a class="inline-block rounded-md bg-yellow-500 m-2 px-4 py-2 text-white shadow-sm focus:relative hover:bg-yellow-600 transition duration-300" href="/admin/toggle_admin_status/<?=$user['id']?>">Changer droits</a>
+                    <a class="inline-block rounded-md bg-red-500 m-2 px-4 py-2 text-white shadow-sm focus:relative hover:bg-red-600 transition duration-300" href="/admin/delete_user/<?=$user['id']?>">Supprimer</a>
                 </td>
             </tr>
         <?php endforeach;

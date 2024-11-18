@@ -33,7 +33,7 @@
                             class="h-14 w-14 rounded-full object-cover"
                     />
                     <div>
-                        <div class="flex justify-center gap-0.5 text-green-500">
+                        <div class="flex justify-center gap-0.5 text-orange-500">
                             <!-- Star rating  -->
                             <?php for ($i = 0; $i < 5; $i++): ?>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -58,7 +58,7 @@
                             class="h-14 w-14 rounded-full object-cover"
                     />
                     <div>
-                        <div class="flex justify-center gap-0.5 text-green-500">
+                        <div class="flex justify-center gap-0.5 text-orange-500">
                             <!-- Star rating  -->
                             <?php for ($i = 0; $i < 5; $i++): ?>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -83,7 +83,7 @@
                             class="h-14 w-14 rounded-full object-cover"
                     />
                     <div>
-                        <div class="flex justify-center gap-0.5 text-green-500">
+                        <div class="flex justify-center gap-0.5 text-orange-500">
                             <!-- Star rating  -->
                             <?php for ($i = 0; $i < 4; $i++): ?>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
