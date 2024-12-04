@@ -32,7 +32,7 @@ class Renderer
      *
      * Cette méthode capture la sortie de la vue et retourne son contenu sous forme de chaîne de caractères.
      *
-     * @return bool|string Le contenu de la vue rendu ou false en cas d'erreur.
+     * @return bool|string Le contenu de la vue rendue ou false en cas d'erreur.
      */
     public function view()
     {

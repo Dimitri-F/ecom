@@ -5,19 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01624c79-faf2-4a8d-8add-6c8b425cc53f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ecom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ecom.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeception.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeception.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/View/categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/View/create_category.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/create_category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/View/create_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/create_product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/View/edit_category.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/edit_category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/View/edit_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/edit_product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Admin/View/orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/orders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Admin/View/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/products.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Admin/View/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/users.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Admin/includes/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/includes/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/ErrorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/ErrorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BaseModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/BaseModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/CartModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/CartModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/OrderModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/OrderModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ProductModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/ProductModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/UserModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/Public/assets/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Public/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Public/includes/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Public/includes/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/Public/includes/head.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Public/includes/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Public/includes/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Router/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/Router/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/Renderer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Renderer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/about.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/cancel.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/cancel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/products_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/products_detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/success.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/success.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +93,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/ecom/Controller&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -150,7 +177,16 @@
       <workItem from="1730899046444" duration="2792000" />
       <workItem from="1731503445354" duration="4747000" />
       <workItem from="1731928097484" duration="438000" />
-      <workItem from="1731928661727" duration="6200000" />
+      <workItem from="1731928661727" duration="6415000" />
+      <workItem from="1731952648761" duration="531000" />
+      <workItem from="1732132775456" duration="208000" />
+      <workItem from="1732635771563" duration="3832000" />
+      <workItem from="1732719909353" duration="9360000" />
+      <workItem from="1732982829706" duration="626000" />
+      <workItem from="1733130099516" duration="3283000" />
+      <workItem from="1733152697792" duration="5623000" />
+      <workItem from="1733233311630" duration="2660000" />
+      <workItem from="1733317060816" duration="10716000" />
     </task>
     <servers />
   </component>

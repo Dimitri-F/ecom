@@ -6,7 +6,7 @@ if (isset($_SESSION['message'])) {
 
 ?>
 
-<h1>ADMIN : Liste des utilisateurs</h1>
+<h1 class="text-center text-2xl text-orange-500 font-bold m-4">ADMIN : Liste des utilisateurs</h1>
 
 <table id="usersTable" class="display">
     <thead>

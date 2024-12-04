@@ -22,6 +22,12 @@ class CategoryController
 
     public function deleteCategory($id): void
     {
+        $id = filter_var($id, FILTER_VALIDATE_INT);
+        if ($id === false) {
+            $_SESSION['message'] = "ID de catégorie invalide.";
+            header("Location: /admin/categories");
+            exit();
+        }
 
         $this->categoryModel->delete($id);
 
@@ -74,6 +80,13 @@ class CategoryController
 
     public function getCategoryById($id): array
     {
+        $id = filter_var($id, FILTER_VALIDATE_INT);
+        if ($id === false) {
+            $_SESSION['message'] = "ID de catégorie invalide.";
+            header("Location: /admin/categories");
+            exit();
+        }
+
         return $this->categoryModel->getByID($id);
     }
 

@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Src\CsrfHelper;
 use Src\FormValidator;
 use Src\Renderer;
 use Model\UserModel;
@@ -26,6 +27,14 @@ class LoginController
     private function registerUser(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            // Vérifier le token CSRF
+            if (!isset($_POST['csrf_token']) || !CsrfHelper::verifyCsrfToken($_POST['csrf_token'])) {
+                $_SESSION['message'] = "Requête invalide. Veuillez réessayer.";
+                header("Location: /registration");
+                exit;
+            }
+
             $validationResult = FormValidator::validateForm([
                 'pseudo' => 'string',
                 'password' => 'string'
@@ -75,6 +84,14 @@ class LoginController
     private function loginUser(string $pseudo = null, string $password = null): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' || ($pseudo !== null && $password !== null)) {
+
+            // Vérifier le token CSRF
+            if (!isset($_POST['csrf_token']) || !CsrfHelper::verifyCsrfToken($_POST['csrf_token'])) {
+                $_SESSION['message'] = "Requête invalide. Veuillez réessayer.";
+                header("Location: /login");
+                exit;
+            }
+
             // Si pseudo et password ne sont pas fournis, on les récupère du POST
             if ($pseudo === null && $password === null) {
                 $validationResult = FormValidator::validateForm([

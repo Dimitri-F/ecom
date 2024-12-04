@@ -17,32 +17,39 @@ class BaseModel
 
     public function getAll(): array
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM {$this->table}");
-        $stmt->execute();
-        return $stmt->fetchAll();
+        try {
+            $stmt = $this->pdo->prepare("SELECT * FROM {$this->table}");
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo "Erreur lors de la récupération : " . $e->getMessage();
+            return [];
+        }
     }
 
     public function getByID(int $id): array
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id = :id");
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetch();
-
-        if ($result === false) {
+        try {
+            $stmt = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id = :id");
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetch();
+        } catch (PDOException $e) {
+            echo "Erreur lors de la récupération : " . $e->getMessage();
             return [];
         }
-
-        return $result;
     }
 
     public function delete(int $id): bool
     {
-        $stmt = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = :id");
-
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-
-        return $stmt->execute();
+        try {
+            $stmt = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = :id");
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Erreur lors de la suppression : " . $e->getMessage();
+            return false;
+        }
     }
 
     /**
@@ -132,7 +139,4 @@ class BaseModel
             return false;
         }
     }
-
-
-
 }

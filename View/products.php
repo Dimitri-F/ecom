@@ -3,10 +3,10 @@
 
 ?>
 
-    <div class="bg-white py-16 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8">
-        <div class="flex items-center justify-between px-4 sm:px-6 lg:px-0">
-            <h2 class="text-2xl font-bold tracking-tight text-gray-900">Nos produits</h2>
-        </div>
+
+    <div class="bg-white lg:mx-auto lg:max-w-7xl lg:px-8">
+
+        <h1 class="text-center text-4xl font-bold tracking-tight text-gray-900 ">Nos produits</h1>
 
         <?php if (!empty($products)) : ?>
             <div class="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:gap-x-8">

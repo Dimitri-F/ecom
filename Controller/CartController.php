@@ -13,32 +13,6 @@ class CartController
     {
         $this->cartModel = new CartModel();
     }
-//
-//    public function getCartProducts() {
-//        // Récupérer le panier depuis la session
-//        $cartItems = $_SESSION['cart'] ?? [];
-//
-//        // Tableau pour stocker les produits avec leurs informations
-//        $productsWithQuantities = [];
-//
-//        // Parcourir chaque produit dans le panier
-//        foreach ($cartItems as $productId => $quantity) {
-//            // Récupérer les détails du produit depuis le modèle
-//            $product = $this->cartModel->getProductById($productId);
-//
-//            if ($product) {
-//                // Ajouter la quantité et le sous-total pour chaque produit
-//                $product['quantity'] = $quantity;
-//                $product['subtotal'] = $product['price'] * $quantity;
-//
-//                // Ajouter le produit avec les informations supplémentaires dans le tableau
-//                $productsWithQuantities[] = $product;
-//            }
-//        }
-//
-//        // Retourner la liste des produits avec leurs quantités
-//        return $productsWithQuantities;
-//    }
 
     public function showCart() {
         $cartItems = $_SESSION['cart'] ?? [];
@@ -168,7 +142,8 @@ class CartController
         return json_encode($productsJson);
     }
 
-    public function showPayment(): Renderer {
+    public function showPayment(): Renderer
+    {
         if (!isset($_SESSION['userId'])) {
             $_SESSION['redirect_to'] = '/pay'; // Stocker l'URL de redirection
             header("Location: /login"); // Rediriger vers la page de connexion

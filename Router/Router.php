@@ -14,9 +14,7 @@ class Router
         $this->routes[$path] = $action;
     }
 
-    /**
-     * @throws RouteNotFoundException
-     */
+
     public function resolve(string $uri)
     {
         $path = explode('?', $uri)[0];
@@ -28,10 +26,6 @@ class Router
             // Vérifie si le chemin correspond au modèle
             if (preg_match('#^' . $pattern . '$#', $path, $matches)) {
                 array_shift($matches); // Retire le premier élément qui est l'URL entière
-
-//                if (is_callable($action)){
-//                    return $action();
-//                }
 
                 if (is_array($action)) {
                     [$className, $method] = $action;

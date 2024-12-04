@@ -59,7 +59,7 @@
         </div>
     </div>
     <?php if (isset($_SESSION['userPseudo'])) : ?>
-        <h2 class="block lg:inline-block text-md font-bold text-gray-900 mx-2 p-1"> Bonjour, <?= $_SESSION['userPseudo'] ?></h2>
+        <h2 class="block lg:inline-block text-md font-bold text-orange-600 ms-2 p-1"> Bonjour, <?= $_SESSION['userPseudo'] ?> :)</h2>
     <?php endif; ?>
 </header>
 

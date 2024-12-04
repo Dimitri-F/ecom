@@ -6,7 +6,7 @@ if (isset($_SESSION['message'])) {
 
 ?>
 
-<h1>ADMIN : Liste des catégories</h1>
+<h1 class="text-center text-2xl text-orange-500 font-bold m-4">ADMIN : Liste des catégories</h1>
 
 <a class="m-6 inline-block rounded-md bg-blue-500 px-4 py-2 text-white shadow-sm focus:relative hover:bg-blue-600 transition duration-300" href="/admin/create_category_view">+ Nouvelle catégorie</a>
 

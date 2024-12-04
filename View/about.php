@@ -1,5 +1,6 @@
 <?php ?>
-<h1 class="text-center text-lg font-medium text-gray-900 my-5">FAQ</h1>
+
+<h1 class="text-center text-4xl font-bold tracking-tight text-gray-900 uppercase">Faq</h1>
 <div class="container m-5">
     <div class="space-y-4">
         <details

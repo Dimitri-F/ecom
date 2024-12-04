@@ -9,6 +9,5 @@ class ErrorController
     public function pageNotFound()
     {
         return Renderer::make('404');
-
     }
 }

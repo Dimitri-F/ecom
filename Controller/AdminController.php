@@ -10,7 +10,6 @@ class AdminController
     private UserController $userController;
     private ProductController $productController;
     private CategoryController $categoryController;
-
     private OrderController $orderController;
 
     public function __construct() {
@@ -80,8 +79,13 @@ class AdminController
             session_start();
         }
 
+        if (!isset($_SESSION['initiated'])) {
+            session_regenerate_id();
+            $_SESSION['initiated'] = true;
+        }
+
         if (!$this->userController->isAdmin()) {
-            $_SESSION['message'] = "Accès refusé.";
+            $_SESSION['message'] = "Accès refusé. Connectez-vous en tant qu'administrateur.";
             header("Location: /login");
             exit();
         }

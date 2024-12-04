@@ -1,6 +1,7 @@
 <?php ?>
 
-<h1 class="text-2xl font-bold mb-4">ADMIN : Liste des commandes</h1>
+<h1 class="text-center text-2xl text-orange-500 font-bold m-4">ADMIN : Liste des commandes</h1>
+
 
 <!-- Conteneur principal -->
 <div class="overflow-x-auto">

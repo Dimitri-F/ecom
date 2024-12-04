@@ -100,19 +100,12 @@ class ProductController
             exit;
         }
 
-        $category_id = $sanitizedData['category_id'];
-        $name = $sanitizedData['name'];
-        $description = $sanitizedData['description'];
-        $price = $sanitizedData['price'];
-        $photo = $fileValidation['filePath'] ? basename($fileValidation['filePath']) : null;
-
-        // Créer l'array $data
         $data = [
-            'category_id' => $category_id,
-            'name' => $name,
-            'description' => $description,
-            'price' => $price,
-            'photo' => $photo
+            'category_id' => $sanitizedData['category_id'],
+            'name' => $sanitizedData['name'],
+            'description' => $sanitizedData['description'],
+            'price' => $sanitizedData['price'],
+            'photo' => $fileValidation['filePath'] ? basename($fileValidation['filePath']) : null
         ];
 
         // Création du produit
