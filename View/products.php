@@ -4,7 +4,7 @@
 ?>
 
 
-    <div class="bg-white lg:mx-auto lg:max-w-7xl lg:px-8">
+    <div class="bg-white lg:mx-auto lg:max-w-7xl lg:px-8 my-5">
 
         <h1 class="text-center text-4xl font-bold tracking-tight text-gray-900 ">Nos produits</h1>
 
