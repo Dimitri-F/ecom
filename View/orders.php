@@ -1,7 +1,7 @@
 <?php ?>
 
 <div class="container mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-6">Liste des commandes de <?php echo htmlspecialchars($_SESSION['userPseudo']); ?></h1>
+    <h1 class="text-3xl text-center font-bold mb-6">Liste des commandes de <?php echo htmlspecialchars($_SESSION['userPseudo']); ?></h1>
 
     <?php if (!empty($orders)) : ?>
         <!-- Grille responsive -->

@@ -11,7 +11,7 @@
     <p class="absolute lg:bottom-25 text-white bg-gray-500 bg-opacity-50 px-6 py-3 text-2xl font-medium text-center rounded hidden lg:block">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis justo diam. Duis in convallis nisi, eu sollicitudin nunc. Praesent vel mauris sit amet erat rhoncus vulputate ut nec neque.
     </p>
-    <a class="absolute lg:bottom-5 text-orange-500 bg-white px-2 py-3 rounded shadow-xl hidden lg:block animate-bounce" href=" /products">Vers la boutique</a>
+    <a class="absolute text-2xl lg:bottom-5 text-orange-500 bg-white px-2 py-3 rounded shadow-xl hidden lg:block animate-bounce" href=" /products">Vers la boutique</a>
 </div>
 
 

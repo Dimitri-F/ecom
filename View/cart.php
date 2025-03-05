@@ -1,6 +1,6 @@
 <?php if (!empty($products)) : ?>
     <div class="container mx-auto p-6 bg-white rounded-lg shadow-md">
-        <h2 class="text-2xl font-bold mb-4">Votre Panier</h2>
+        <h2 class="text-2xl text-center font-bold mb-4">Votre Panier</h2>
         <!-- Conteneur défilable pour le tableau -->
         <div class="overflow-x-auto">
             <table class="min-w-full bg-white border border-gray-300 hidden lg:table">
@@ -72,7 +72,7 @@
             </div>
         </div>
         <div class="mt-4">
-            <p class="text-lg font-bold">Total : <?= isset($totalAmount) ? htmlspecialchars($totalAmount) : '0' ?> €</p>
+            <p class="text-lg text-right font-bold">Total : <?= isset($totalAmount) ? htmlspecialchars($totalAmount) : '0' ?> €</p>
             <p class="mt-2"><a href="/cart_clear" class="inline-block rounded-md bg-orange-500 px-4 py-2 text-sm text-white hover:bg-orange-600">Vider le panier</a></p>
         </div>
         <div class="mt-6 text-center">
@@ -81,7 +81,7 @@
     </div>
 <?php else : ?>
     <div class="container mx-auto p-6 bg-white rounded-lg shadow-md">
-        <p class="text-lg">Votre panier est vide.</p>
+        <p class="text-lg text-center">Votre panier est vide.</p>
     </div>
 <?php endif; ?>
 

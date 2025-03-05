@@ -53,6 +53,7 @@ class AdminController
       $this->productController->deleteProduct($id);
     }
 
+
     public function updateViewProduct($id): Renderer
     {
         $this->checkAdminAccess();

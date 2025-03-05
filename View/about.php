@@ -5,7 +5,6 @@
     <div class="space-y-4">
         <details
                 class="group border-s-4 border-orange-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
-                open
         >
             <summary class="flex cursor-pointer items-center justify-between gap-1.5">
                 <h2 class="text-lg font-medium text-gray-900">
