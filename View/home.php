@@ -2,13 +2,12 @@
 
 ?>
 
-
 <div class="relative flex items-center justify-center">
     <img src="assets/images/home.jpg" alt="Home Image" class="max-w-full h-full rounded-lg shadow-lg">
-    <h1 class="absolute lg:top-20 text-white bg-gray-500 bg-opacity-50 px-6 py-3 text-5xl font-medium text-center rounded animate-pulse">
+    <h1 class="absolute lg:top-20 text-white bg-gray-500 bg-opacity-50 px-6 py-3 text-5xl font-medium text-center rounded">
         Bienvenue !
     </h1>
-    <p class="absolute lg:bottom-25 text-white bg-gray-500 bg-opacity-50 px-6 py-3 text-2xl font-medium text-center rounded hidden lg:block">
+    <p class="absolute lg:bottom-25 text-white bg-gray-500 bg-opacity-50 px-6 py-3 text-2xl font-medium text-center rounded hidden lg:block animate-pulse">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis justo diam. Duis in convallis nisi, eu sollicitudin nunc. Praesent vel mauris sit amet erat rhoncus vulputate ut nec neque.
     </p>
     <a class="absolute text-2xl lg:bottom-5 text-orange-500 bg-white px-2 py-3 rounded shadow-xl hidden lg:block animate-bounce" href=" /products">Vers la boutique</a>
