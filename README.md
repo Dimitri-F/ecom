@@ -76,6 +76,6 @@ Faites vos modifications et commitez
 
 Ouvrez une pull request
 
-Auteur
+## Auteur
 
 ### Projet réalisé par Dimitri F. 
