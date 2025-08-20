@@ -45,7 +45,7 @@ Serveur web type Apache/Nginx (XAMPP, WAMP, MAMP ou autre)
 
 Cloner ce dépôt GitHub sur votre machine locale.
 
-git clone https://github.com/ton-utilisateur/ton-depot.git
+git clone https://github.com/Dimitri-F/ecom.git
 
 
 Importer la base de données depuis le fichier database.sql fourni (si présent).
